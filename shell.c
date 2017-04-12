@@ -32,9 +32,6 @@ int main(void)
 	n = print_input_list(input_head);
 	printf("\nn is: %lu\n", n);
 	print_env_list(env_head);
-	free(buffer);
-	free_input_list(input_head);
-	free_env_list(env_head);
-	free_env_array(enviroment_list);
+	free_mem(buffer, input_head, env_head, enviroment_list);
 	exit(EXIT_SUCCESS);
 }
