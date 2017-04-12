@@ -3,13 +3,15 @@ extern char **environ;
 env_var_list_t * add_env_node(env_var_list_t **head, char *env_var)
 {
 	env_var_list_t *new_node, *tmp;
-	char *env_variable = _strdup(env_var);
 
+	char *env_variable = _strdup(env_var);
 	if (env_variable == NULL)
 		return (NULL);
+
 	new_node = malloc(sizeof(env_var_list_t));
 	if (new_node == NULL)
 		return (NULL);
+
 	new_node->key = strtok(env_variable, "=");
 	new_node->value = strtok(NULL, "\0");
 	new_node->next = NULL;
@@ -31,7 +33,6 @@ int create_env_list(env_var_list_t **env_head)
 	while (environ[i] != NULL)
 	{
 		add_env_node(env_head, environ[i]);
-		printf("%s\n", environ[i]);
 		i++;
 	}
 	return (i);

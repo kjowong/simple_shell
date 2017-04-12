@@ -8,14 +8,14 @@ int main(void)
 	char * s;
 	list_t *input_head;
 	env_var_list_t *env_head;
-	int n;
+	char **enviroment_list;
+	  size_t n;
 
 	env_head = NULL;
 	input_head = NULL;
 
 	n = create_env_list(&env_head);
-	printf("n is %u\n", n);
-	conv_list_to_array(env_head, n);
+	enviroment_list = conv_list_to_array(env_head, n);
 	_write("$ ");
 	while ((read = getline(&buffer, &len, stdin)) != -1)
 	{
@@ -29,11 +29,12 @@ int main(void)
 		}
 		_write("$ ");
 	}
-	/*n = print_input_list(input_head);
+	n = print_input_list(input_head);
 	printf("\nn is: %lu\n", n);
-	print_env_list(env_head);*/
+	print_env_list(env_head);
 	free(buffer);
 	free_input_list(input_head);
-	/*free_env_list(env_head);*/
+	free_env_list(env_head);
+	free_env_array(enviroment_list);
 	exit(EXIT_SUCCESS);
 }
