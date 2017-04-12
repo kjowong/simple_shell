@@ -34,6 +34,6 @@ int main(void)
 	print_env_list(env_head);*/
 	free(buffer);
 	free_input_list(input_head);
-	free_env_list(env_head);
+	/*free_env_list(env_head);*/
 	exit(EXIT_SUCCESS);
 }
