@@ -20,6 +20,7 @@ void free_env_list(env_var_list_t *head)
 		return;
 	if(head->next)
 		free_env_list(head->next);
+	free(head->key);
 	free(head);
 
 }
@@ -34,4 +35,5 @@ void free_env_array(char **array)
 		free(array[i]);
 		i++;
 	}
+	free(array);
 }
