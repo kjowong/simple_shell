@@ -35,6 +35,15 @@ typedef struct env_var_list_s
 	char * value;
 	struct env_var_list_s *next;
 } env_var_list_t;
+/**
+ */
+typedef struct builtin_s
+{
+	char * cmd;
+	int (*f)();
+} builtin;
+
+
 list_t *add_node_end(list_t **head, const char * s);
 int _putchar(char);
 int _strlen(const char *s);
@@ -43,11 +52,17 @@ char *_strncat(char *dest, char *src, int n);
 char *_strncpy(char *dest, char *src, int n);
 int _strcmp(char *s1, char *s2);
 int _strcmp_env(const char *s1, const char *s2);
-size_t print_list(const list_t *h);
+size_t print_input_list(const list_t *h);
+size_t print_env_list(const env_var_list_t *h);
 char *_strdup(const char *str);
-void free_list(list_t *head);
 const char * _getenv(const char *name);
 env_var_list_t *add_env_node(env_var_list_t **head, char *env_var);
-size_t print_env_list(const env_var_list_t *h);
 int _setenv(const char *name, const char *value, int overwrite);
+int _write(char *s);
+int create_env_list(env_var_list_t **env);
+void free_input_list(list_t *input_head);
+void free_env_list(env_var_list_t *env_head);
+char *_memset(char *s, char b, unsigned int n);
+char *_memcopy(char *dest, char *src, unsigned int n);
+char ** conv_list_to_array(env_var_list_t * env_head, int n);
 #endif
