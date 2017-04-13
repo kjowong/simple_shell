@@ -67,4 +67,5 @@ char *_memcopy(char *dest, char *src, unsigned int n);
 char ** conv_list_to_array(env_var_list_t * env_head, int n);
 void free_env_array(char **array);
 void free_mem(char *buffer, list_t *input_head, env_var_list_t *env_head, char **enviroment_list);
+char **path_parserator(env_var_list_t *env_head, size_t n);
 #endif

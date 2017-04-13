@@ -9,13 +9,14 @@ int main(void)
 	list_t *input_head;
 	env_var_list_t *env_head;
 	char **enviroment_list;
-	  size_t n;
+	size_t n;
 
 	env_head = NULL;
 	input_head = NULL;
 
 	n = create_env_list(&env_head);
 	enviroment_list = conv_list_to_array(env_head, n);
+	path_parserator(env_head, n);
 	_write("$ ");
 	while ((read = getline(&buffer, &len, stdin)) != -1)
 	{
