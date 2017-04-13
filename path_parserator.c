@@ -8,9 +8,10 @@ char **path_parserator(env_var_list_t *env_head, size_t n)
 	char *paths, *paths_cp;
 	char *delim = ":";
 	char *p = "PATH";
-	char *token;
+	/*char *token;*/
 	temp = env_head;
-	array = malloc(sizeof(char *) * n);
+/*n below is wrong*/
+	array = malloc(sizeof(char *) * (n));
 	if (array == NULL)
 		return (NULL);
 	if (!temp)
@@ -23,21 +24,23 @@ char **path_parserator(env_var_list_t *env_head, size_t n)
 		{
 			paths = temp->value;
 			paths_cp = _strdup(paths);
+			printf("paths_cp: %s\n", paths_cp);
 			if (paths_cp == NULL)
 			{
 				free(array);
 				return (NULL);
 			}
-			token = strtok(paths_cp, delim);
-			array[0] = token;
-			for (j = 1; token != NULL; j++)
+			array[0] = strtok(paths_cp, delim);
+			for (j = 1; j < 9; j++)
 			{
-				token = array[j] = strtok(NULL, delim);
+				array[j] = strtok(NULL, delim);
+				printf("array[%d]: %s\n", j, array[j]);
 			}
+			printf("array[0]: %s\n", array[0]);
 		}
 		temp = temp->next;
 	}
-	free(paths_cp);
-	free(array);
+	/*free(paths_cp);
+	free(array);*/
 	return(array);
 }

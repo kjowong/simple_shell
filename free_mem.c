@@ -45,3 +45,9 @@ void free_mem(char *buffer, list_t *input_head, env_var_list_t *env_head, char *
 	free_env_list(env_head);
 	free_env_array(enviroment_list);
 }
+void free_path_array(char **array)
+{
+	if (array == NULL)
+		return;
+	free(array);
+}

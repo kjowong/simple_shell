@@ -9,6 +9,7 @@ int main(void)
 	list_t *input_head;
 	env_var_list_t *env_head;
 	char **enviroment_list;
+	char **path_array;
 	size_t n;
 
 	env_head = NULL;
@@ -16,7 +17,9 @@ int main(void)
 
 	n = create_env_list(&env_head);
 	enviroment_list = conv_list_to_array(env_head, n);
-	path_parserator(env_head, n);
+	path_array = path_parserator(env_head, n);
+	printf("in MAIN array[0]: %s\n", path_array[0]);
+	printf("in MAIN array[1]: %s\n", path_array[1]);
 	_write("$ ");
 	while ((read = getline(&buffer, &len, stdin)) != -1)
 	{
@@ -34,5 +37,6 @@ int main(void)
 	printf("\nn is: %lu\n", n);
 	print_env_list(env_head);
 	free_mem(buffer, input_head, env_head, enviroment_list);
+	free_path_array(path_array);
 	exit(EXIT_SUCCESS);
 }
