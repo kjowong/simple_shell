@@ -49,5 +49,6 @@ void free_path_array(char **array)
 {
 	if (array == NULL)
 		return;
+	free(array[0]);
 	free(array);
 }
