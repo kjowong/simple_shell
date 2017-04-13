@@ -37,18 +37,18 @@ void free_env_array(char **array)
 	}
 	free(array);
 }
-
-void free_mem(char *buffer, list_t *input_head, env_var_list_t *env_head, char **enviroment_list)
-{
-	free(buffer);
-	free_input_list(input_head);
-	free_env_list(env_head);
-	free_env_array(enviroment_list);
-}
 void free_path_array(char **array)
 {
 	if (array == NULL)
 		return;
 	free(array[0]);
 	free(array);
+}
+void free_mem(char *buffer, list_t *input_head, env_var_list_t *env_head, char **enviroment_list, char **path_array)
+{
+	free(buffer);
+	free_input_list(input_head);
+	free_env_list(env_head);
+	free_env_array(enviroment_list);
+	free_path_array(path_array);
 }
