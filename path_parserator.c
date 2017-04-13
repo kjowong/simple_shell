@@ -1,42 +1,43 @@
 #include "shell.h"
-
 char **path_parserator(env_var_list_t *env_head, size_t n)
 {
-	char **array = NULL;
-	int j, semicols;
+	char **array;
+	int j;
 	unsigned int i;
 	env_var_list_t *temp;
-	char * paths, *paths_cp;
+	char *paths, *paths_cp;
 	char *delim = ":";
-	char * p = "PATH";
-	semicols = 0;
+	char *p = "PATH";
+	char *token;
 	temp = env_head;
-	if(temp)
-		for(i = 0; i < n; i++)
+	array = malloc(sizeof(char *) * n);
+	if (array == NULL)
+		return (NULL);
+	if (!temp)
+	{
+		perror("Error\n");
+	}
+	for(i = 0; i < n; i++)
+	{
+		if (_strcmp(temp->key, p) == 0)
 		{
-			j = _strcmp(temp->key, p);
-			if (j == 0)
+			paths = temp->value;
+			paths_cp = _strdup(paths);
+			if (paths_cp == NULL)
 			{
-				paths = temp->value;
-				while(paths[j] != '\0')
-				{
-					if(paths[j] == ':')
-						semicols++;
-					j++;
-				}
-				semicols++;
-				paths_cp = _strdup(paths);
-				array[0] = strtok(paths_cp, delim);
-				getchar();
-				for(j = 1; j < semicols - 1; j++)
-				{
-					printf("%s\n", array[j]);
-					array[j] = strtok(NULL, delim);
-				}
-				/*array[j] = strtok(NULL, '\0');
-				  array[++j] = NULL;*/
+				free(array);
+				return (NULL);
 			}
-			temp = temp->next;
+			token = strtok(paths_cp, delim);
+			array[0] = token;
+			for (j = 1; token != NULL; j++)
+			{
+				token = array[j] = strtok(NULL, delim);
+			}
 		}
+		temp = temp->next;
+	}
+	free(paths_cp);
+	free(array);
 	return(array);
 }
