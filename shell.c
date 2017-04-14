@@ -2,24 +2,18 @@
 
 int main(void)
 {
-	char *buffer = NULL;
-	size_t len = 0;
+	char *buffer, *s;
+	size_t num_of_env_nodes, i, len;
 	ssize_t read;
-	char *s;
 	list_t *input_head;
 	env_var_list_t *env_head;
-	char **enviroment_list;
-	char **path_array;
-	char **input_array;
-	size_t num_of_env_nodes, i;
+	char **enviroment_list, **path_array, **input_array;
 
-	i = 0;
+	len = i = num_of_env_nodes = 0;
+	enviroment_list = path_array = input_array = NULL;
 	env_head = NULL;
 	input_head = NULL;
-	input_array = NULL;
-	path_array = NULL;
-	enviroment_list = NULL;
-
+	s = buffer = NULL;
 	num_of_env_nodes = create_env_list(&env_head);
 	enviroment_list = conv_list_to_array(env_head, num_of_env_nodes);
 	path_array = path_parserator(env_head);
@@ -40,8 +34,6 @@ int main(void)
 		free_env_array(input_array);
 		_write("$ ");
 	}
-	/*n = print_input_list(input_head);
-	printf("\nn is: %lu\n", n);*/
 	free_mem(buffer, input_head, env_head, enviroment_list, path_array);
 	exit(EXIT_SUCCESS);
 }
