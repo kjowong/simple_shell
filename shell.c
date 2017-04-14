@@ -17,6 +17,9 @@ int main(void)
 	i = 0;
 	env_head = NULL;
 	input_head = NULL;
+	input_array = NULL;
+	path_array = NULL;
+	enviroment_list = NULL;
 
 	num_of_env_nodes = create_env_list(&env_head);
 	enviroment_list = conv_list_to_array(env_head, num_of_env_nodes);
@@ -33,16 +36,13 @@ int main(void)
 			s = strtok(NULL, " ");
 			i++;
 		}
-		input_array = conv_inputlist_to_array(input_head, i - 1);
-		for(j = (i - 1); j >= 0; j--)
-		{
-			/*printf("%s\n", input_array[j]);*/
-		}
-		/*cmd_executor(path_array, s);*/
+		input_array = conv_inputlist_to_array(input_head, i);
+/*cmd_executor(path_array, s);*/
+		free_env_array(input_array);
 		_write("$ ");
 	}
 	/*n = print_input_list(input_head);
 	printf("\nn is: %lu\n", n);*/
-	free_mem(buffer, input_head, env_head, enviroment_list, path_array, input_array);
+	free_mem(buffer, input_head, env_head, enviroment_list, path_array);
 	exit(EXIT_SUCCESS);
 }

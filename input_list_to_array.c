@@ -8,7 +8,7 @@ char **conv_inputlist_to_array(list_t *input_list_head, size_t i)
 	int len = 0;
 
 	tmp = input_list_head;
-	input_array = malloc(sizeof(char *) * (i + 2));
+	input_array = malloc(sizeof(char *) * (i + 1));
 	while(tmp != NULL)
 	{
 		len = _strlen(tmp->str);
@@ -17,7 +17,7 @@ char **conv_inputlist_to_array(list_t *input_list_head, size_t i)
 		tmp = tmp->next;
 		j++;
 	}
-	input_array[j] = '\0';
+	input_array[j] = NULL;
 
 	return(input_array);
 }
