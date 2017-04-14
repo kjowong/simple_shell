@@ -6,7 +6,7 @@ int cmd_executor(char **path_folders, const char *cmd)
 	int i, j, k, l, exec_status;
 	pid_t pid;
 	int status;
-	char *newargv[] = { "/bin/ls", NULL };
+
 	for(i = 0; cmd[i] != '\0'; i++)
 	{
 		if(cmd[i] == '/')

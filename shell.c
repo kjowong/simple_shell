@@ -12,7 +12,6 @@ int main(void)
 	char **path_array;
 	char **input_array;
 	size_t num_of_env_nodes, i;
-	int j;
 
 	i = 0;
 	env_head = NULL;
@@ -37,7 +36,7 @@ int main(void)
 			i++;
 		}
 		input_array = conv_inputlist_to_array(input_head, i);
-/*cmd_executor(path_array, s);*/
+		/*cmd_executor(input_array, s);*/
 		free_env_array(input_array);
 		_write("$ ");
 	}

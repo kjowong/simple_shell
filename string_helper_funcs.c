@@ -52,13 +52,7 @@ char *_strdup(const char *str)
 	if (str == NULL)
 		return (NULL);
 
-	string = malloc(sizeof(char) * (_strlen(str) + 1));
-	if (string == NULL)
-	{
-		free(string);
-		return (NULL);
-	}
-
+	string = _grand_malloc(sizeof(char) * (_strlen(str) + 1));
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] == '\n')

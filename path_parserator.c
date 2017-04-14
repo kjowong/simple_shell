@@ -18,7 +18,7 @@ char **path_parserator(env_var_list_t *env_head)
 		{
 			paths = temp->value;
 			num_of_path_folders = path_folder_counter(paths);
-			array = malloc(sizeof(char *) * (num_of_path_folders));
+			array = _grand_malloc(sizeof(char *) * (num_of_path_folders));
 			paths_cp = _strdup(paths);
 			if (paths_cp == NULL)
 			{

@@ -9,12 +9,12 @@ char ** conv_list_to_array(env_var_list_t * env_head, int n)
 
 	len = i = 0;
 	tmp = env_head;
-	array = malloc(sizeof(char *) * (n + 1));
+	array = _grand_malloc(sizeof(char *) * (n + 1));
 
 	while (tmp != NULL)
 	{
 		len = _strlen(tmp->key) + _strlen(tmp->value);
-		array[i] = malloc(sizeof(char) * (len + 1));
+		array[i] = _grand_malloc(sizeof(char) * (len + 1));
 		if (array[i] == NULL)
 		{
 			free(array);

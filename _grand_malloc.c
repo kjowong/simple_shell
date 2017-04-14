@@ -14,6 +14,5 @@ void *_grand_malloc(size_t mem_needed)
 		allocated_head[i] = '\0';
 		i++;
 	}
-	printf("in _grand_malloc i is %u\n", i);
 	return(allocated_head);
 }
