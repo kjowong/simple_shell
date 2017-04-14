@@ -35,7 +35,6 @@ void free_env_array(char **array)
 		free(array[i]);
 		i++;
 	}
-	printf("in free_env_array i is %d\n", i);
 	free(array);
 }
 void free_path_array(char **array)

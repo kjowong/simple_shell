@@ -8,6 +8,7 @@ int main(void)
 	list_t *input_head;
 	env_var_list_t *env_head;
 	char **enviroment_list, **path_array, **input_array;
+	int words = 0;
 
 	len = i = num_of_env_nodes = 0;
 	enviroment_list = path_array = input_array = NULL;
@@ -20,7 +21,8 @@ int main(void)
 	_write("$ ");
 	while ((read = getline(&buffer, &len, stdin)) != -1)
 	{
-		if (_strcmp(buffer, "end-of-file") == 0 || _strcmp(buffer, "exit") == 0)
+		words = input_word_counter(buffer);
+		if(_strcmp(buffer, "exit") == 0)
 			break;
 		s = strtok(buffer, " ");
 		while (s != NULL)
