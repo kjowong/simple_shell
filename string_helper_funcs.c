@@ -84,3 +84,24 @@ int _strlen(const char *s)
 	}
 	return (i);
 }
+/**
+ * _strdup - returns a pointer to a new string which is a duplicate
+ * of the string str
+ * @str: input string
+ *
+ * Return: a pointer to a newly allocated space in memory
+ */
+unsigned int path_folder_counter(char *paths)
+{
+	unsigned int i, path_folders;
+
+	i = path_folders = 0;
+
+	while(paths[i] != '\0')
+	{
+		if(paths[i] == ':')
+			path_folders++;
+		i++;
+	}
+	return(++path_folders);
+}

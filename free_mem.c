@@ -35,6 +35,7 @@ void free_env_array(char **array)
 		free(array[i]);
 		i++;
 	}
+	printf("in free_env_array i is %d\n", i);
 	free(array);
 }
 void free_path_array(char **array)
@@ -44,11 +45,12 @@ void free_path_array(char **array)
 	free(array[0]);
 	free(array);
 }
-void free_mem(char *buffer, list_t *input_head, env_var_list_t *env_head, char **enviroment_list, char **path_array)
+void free_mem(char *buffer, list_t *input_head, env_var_list_t *env_head, char **enviroment_list, char **path_array, char **input_array)
 {
 	free(buffer);
 	free_input_list(input_head);
 	free_env_list(env_head);
 	free_env_array(enviroment_list);
 	free_path_array(path_array);
+	free_env_array(input_array);
 }

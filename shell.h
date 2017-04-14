@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/wait.h>
 #include <fcntl.h>
 /**
  * struct listint_s - singly linked list
@@ -66,7 +67,11 @@ char *_memset(char *s, char b, unsigned int n);
 char *_memcopy(char *dest, char *src, unsigned int n);
 char ** conv_list_to_array(env_var_list_t * env_head, int n);
 void free_env_array(char **array);
-void free_mem(char *buffer, list_t *input_head, env_var_list_t *env_head, char **enviroment_list, char **path_array);
+void free_mem(char *buffer, list_t *input_head, env_var_list_t *env_head, char **enviroment_list, char **path_array, char **input_array);
 void free_path_array(char **array);
-char **path_parserator(env_var_list_t *env_head, size_t n);
+char **path_parserator(env_var_list_t *env_head);
+unsigned int path_folder_counter(char *paths);
+void *_grand_malloc(size_t mem_needed);
+int cmd_executor(char **path_folders, const char *cmd);
+char **conv_inputlist_to_array(list_t *input_list_head, size_t i);
 #endif
