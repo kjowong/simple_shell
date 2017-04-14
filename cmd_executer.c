@@ -58,6 +58,6 @@ int cmd_executor(char **path_folders, char **cmd)
 		}
 		free(folder);
 	}
-	printf("Bombshell command not found!\n");
+	printf("BombShell: Command not found!\n");
 	return(1);
 }
