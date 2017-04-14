@@ -18,7 +18,7 @@ int main(void)
 	num_of_env_nodes = create_env_list(&env_head);
 	enviroment_list = conv_list_to_array(env_head, num_of_env_nodes);
 	path_array = path_parserator(env_head);
-	_write("$ ");
+	_write("B-shell$$$ ");
 	while ((read = getline(&buffer, &len, stdin)) != -1)
 	{
 		words = input_word_counter(buffer);
@@ -27,7 +27,7 @@ int main(void)
 		input_array = input_to_array(buffer, words);
 		cmd_executor(path_array, input_array);
 		free(input_array);
-		_write("$ ");
+		_write("B-shell$$$ ");
 	}
 	free_mem(buffer, input_head, env_head, enviroment_list, path_array);
 	exit(EXIT_SUCCESS);
