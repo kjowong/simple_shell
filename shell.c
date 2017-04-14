@@ -21,6 +21,11 @@ int main(void)
 	_write("B-shell$$$ ");
 	while ((read = getline(&buffer, &len, stdin)) != -1)
 	{
+		if (_strcmp(buffer, "\n") == 0)
+		{
+			_write("B-shell$$$ ");
+			continue;
+		}
 		words = input_word_counter(buffer);
 		if(_strcmp(buffer, "exit") == 0)
 			break;
