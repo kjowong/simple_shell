@@ -15,7 +15,6 @@ char **input_to_array(char *buffer, int words)
 	}
 	if (input_array[i - 1] != NULL)
 		input_array[i] = NULL;
-	for (i = 0; i < words; i++)
-		printf("array[%d]: %s\n", i, input_array[i]);
+
 	return(input_array);
 }

@@ -22,14 +22,14 @@ int cmd_executor(char **path_folders, char **cmd)
 			}
 			else
 				wait(&status);
-			break;
+			return(status);
 		}
 	}
 
 	for(i = 0; path_folders[i] != '\0'; i++)
 	{
-		/*folder = _grand_malloc(_strlen(path_folders[i]) + _strlen(cmd) + 2);*/
-		folder = _grand_malloc(1024);
+		folder = _grand_malloc(_strlen(path_folders[i]) + _strlen(cmd[0]) + 2);
+
 		for(j = 0; path_folders[i][j] != '\0'; j++)
 		{
 			folder[j] = path_folders[i][j];
@@ -41,11 +41,24 @@ int cmd_executor(char **path_folders, char **cmd)
 			folder[k] = cmd[0][l];
 		}
 		folder[k] = '\0';
-/*		printf("folder[0]: %s\n", folder);*/
 
 		if (access(folder, X_OK) == 0)
-			execve(folder, cmd, NULL);
+		{
+			pid = fork();
+			if(pid == 0)
+			{
+				exec_status = execve(folder, cmd, NULL);
+				free(folder);
+				if (exec_status == -1)
+					exit(EXIT_FAILURE);
+				exit(EXIT_SUCCESS);
+			}
+			else
+				wait(&status);
+			free(folder);
+			return(status);
+		}
+		free(folder);
 	}
-
-	return(0);
+	return(1);
 }
