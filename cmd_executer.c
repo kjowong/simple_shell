@@ -1,20 +1,21 @@
 #include "shell.h"
 
-int cmd_executor(char **path_folders, const char *cmd)
+int cmd_executor(char **path_folders, char **cmd)
 {
-	char *folder;
-	int i, j, k, l, exec_status;
+/*	char *folder;
+	int i, j, k, l;*/
+	int i, exec_status;
 	pid_t pid;
 	int status;
-
+	(void) path_folders;
 	for(i = 0; cmd[i] != '\0'; i++)
 	{
-		if(cmd[i] == '/')
+		if(cmd[0][i] == '/')
 		{
 			pid = fork();
 			if (pid == 0)
 			{
-				exec_status = execve(cmd, newargv, NULL);
+				exec_status = execve(cmd[0], cmd, NULL);
 				if(exec_status == -1)
 					exit(EXIT_FAILURE);
 				exit(EXIT_SUCCESS);
@@ -24,7 +25,7 @@ int cmd_executor(char **path_folders, const char *cmd)
 		}
 		return(0);
 	}
-
+/*
 	for(i = 0; path_folders[i] != '\0'; i++)
 	{
 		folder = _grand_malloc(_strlen(path_folders[i]) + _strlen(cmd) + 2);
@@ -40,6 +41,6 @@ int cmd_executor(char **path_folders, const char *cmd)
 		folder[k] = '\0';
 	}
 	if(access(folder, X_OK) == 0)
-		execve(folder, newargv, NULL);
+	execve(folder, newargv, NULL);*/
 	return(0);
 }

@@ -72,7 +72,7 @@ void free_path_array(char **array);
 char **path_parserator(env_var_list_t *env_head);
 unsigned int path_folder_counter(char *paths);
 void *_grand_malloc(size_t mem_needed);
-int cmd_executor(char **path_folders, const char *cmd);
+int cmd_executor(char **path_array, char **input_array);
 char **conv_inputlist_to_array(list_t *input_list_head, size_t i);
 int input_word_counter(char * buffer);
 char **input_to_array(char *buffer, int words);

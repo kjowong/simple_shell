@@ -2,7 +2,7 @@
 
 int main(void)
 {
-	char *buffer; /*s;*/
+	char *buffer;
 	size_t num_of_env_nodes, i, len;
 	ssize_t read;
 	list_t *input_head;
@@ -14,7 +14,7 @@ int main(void)
 	enviroment_list = path_array = input_array = NULL;
 	env_head = NULL;
 	input_head = NULL;
-	/*s = */buffer = NULL;
+	buffer = NULL;
 	num_of_env_nodes = create_env_list(&env_head);
 	enviroment_list = conv_list_to_array(env_head, num_of_env_nodes);
 	path_array = path_parserator(env_head);
@@ -25,15 +25,7 @@ int main(void)
 		if(_strcmp(buffer, "exit") == 0)
 			break;
 		input_array = input_to_array(buffer, words);
-		/*s = strtok(buffer, " ");
-		while (s != NULL)
-		{
-			add_node_end(&input_head, s);
-			s = strtok(NULL, " ");
-			i++;
-		}
-		input_array = conv_inputlist_to_array(input_head, i);
-		cmd_executor(input_array, s);*/
+		cmd_executor(path_array, input_array);
 		free(input_array);
 		_write("$ ");
 	}
