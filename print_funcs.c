@@ -1,7 +1,7 @@
 #include "shell.h"
 /**
- * print_listint - prints the contents of a linked list
- * @h: pointer to linked list
+ * print_env_list - prints the contents of the environment variables linked list
+ * @h: pointer to environmental variable linked list
  * Return: number of nodes
  */
 size_t print_env_list(const env_var_list_t *h)
@@ -25,7 +25,7 @@ size_t print_env_list(const env_var_list_t *h)
  * @h: pointer to linked list
  * Return: number of nodes
  */
-size_t print_input_list(const list_t *h)
+size_t print_input_list(const list_t *h) /*UNECESSARY FUNCTION*/
 {
 	size_t nodes = 0;
 	const list_t * traverser = h;

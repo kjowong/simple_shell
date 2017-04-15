@@ -9,7 +9,6 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 #include <signal.h>
-
 /**
  * struct listint_s - singly linked list
  * @n: integer

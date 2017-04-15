@@ -1,11 +1,16 @@
 #include "shell.h"
-
-char ** conv_list_to_array(env_var_list_t * env_head, int n)
+/**
+  * conv_list_to_array - converts an env_var linked list into a double ptr array
+  * @env_head: takes in an env_var linked list
+  * @n: the amount of nodes
+  * Return: the converted double ptr array
+  */
+char **conv_list_to_array(env_var_list_t *env_head, int n)
 {
 	char **array;
 	env_var_list_t *tmp;
 	int len, i, j;
-	char * val;
+	char *val;
 
 	len = i = 0;
 	tmp = env_head;
@@ -32,5 +37,5 @@ char ** conv_list_to_array(env_var_list_t * env_head, int n)
 		i++;
 	}
 	array[i] = NULL;
-	return(array);
+	return (array);
 }

@@ -21,7 +21,7 @@ int main(void)
 	enviroment_list = conv_list_to_array(env_head, num_of_env_nodes);
 	path_array = path_parserator(env_head);
 
-	signal(SIGINT, INThandler);
+	signal(SIGINT, SIG_IGN);
 
 	if (fstat(STDIN_FILENO, &sb) == -1)
 	{

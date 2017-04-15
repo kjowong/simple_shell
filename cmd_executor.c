@@ -1,5 +1,4 @@
 #include "shell.h"
-
 int cmd_executor(char **path_folders, char **cmd)
 {
 	char *folder;
@@ -34,7 +33,6 @@ int cmd_executor(char **path_folders, char **cmd)
 	for(i = 0; path_folders[i] != '\0'; i++)
 	{
 		folder = _grand_malloc(_strlen(path_folders[i]) + _strlen(cmd[0]) + 2);
-
 		for(j = 0; path_folders[i][j] != '\0'; j++)
 			folder[j] = path_folders[i][j];
 		folder[j] = '/';
