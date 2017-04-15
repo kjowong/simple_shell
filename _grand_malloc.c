@@ -12,7 +12,7 @@ void *_grand_malloc(size_t mem_needed)
 	i = 0;
 	allocated_head = malloc(mem_needed);
 	if (allocated_head == NULL)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	while (i < mem_needed)
 	{
 		allocated_head[i] = '\0';
