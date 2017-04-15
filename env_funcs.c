@@ -1,18 +1,11 @@
 #include "shell.h"
-/**
-  * add_env_node: creates a linked list from the environmental variables
-  * @head: takes in the ptr to the head
-  * @env_var: ta
-  */
 extern char **environ;
-env_var_list_t *add_env_node(env_var_list_t **head, char *env_var)
+env_var_list_t * add_env_node(env_var_list_t **head, char *env_var)
 {
 	env_var_list_t *new_node, *tmp;
 	char *env_variable;
 
-	new_node = malloc(sizeof(env_var_list_t));
-	if (new_node == NULL)
-		return (NULL);
+	new_node = _grand_malloc(sizeof(env_var_list_t));
 	env_variable = _strdup(env_var);
 	if (env_variable == NULL)
 	{
@@ -33,11 +26,6 @@ env_var_list_t *add_env_node(env_var_list_t **head, char *env_var)
 	tmp->next = new_node;
 	return (new_node);
 }
-/**
-  * create_env_list - creates the environmental linked list
-  * @env_head: takes in the heao
-  * Return: the number of nodes
-  */
 int create_env_list(env_var_list_t **env_head)
 {
 	unsigned int i;
