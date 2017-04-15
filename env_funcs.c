@@ -14,7 +14,7 @@ env_var_list_t *add_env_node(env_var_list_t **head, char *env_var)
 	if (new_node == NULL)
 		return (NULL);
 	env_variable = _strdup(env_var);
-	if (new_node->key == NULL)
+	if (env_variable == NULL)
 	{
 		free(new_node);
 		return (NULL);
