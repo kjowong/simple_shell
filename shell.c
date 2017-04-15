@@ -8,8 +8,8 @@ int main(void)
 	env_var_list_t *env_head;
 	char **enviroment_list, **path_array, **input_array;
 	int words = 0;
-	/*struct stat sb;*/
-	int read;/*, pipe = 0;*/
+	struct stat sb;
+	int read, pipe = 0;
 
 	len = i = num_of_env_nodes = 0;
 	enviroment_list = path_array = input_array = NULL;
@@ -21,7 +21,7 @@ int main(void)
 	enviroment_list = conv_list_to_array(env_head, num_of_env_nodes);
 	path_array = path_parserator(env_head);
 
-	/*if (fstat(STDIN_FILENO, &sb) == -1)
+	if (fstat(STDIN_FILENO, &sb) == -1)
 	{
 		perror("Fail Status");
 		exit(EXIT_FAILURE);
@@ -30,8 +30,8 @@ int main(void)
 	{
 		pipe = 1;
 	}
-	if (pipe == 0)*/
-	_write("B-shell$$$ ");
+	if (pipe == 0)
+	_write("BombShell-$ ");
 	while ((read = getline(&buffer, &len, stdin)) != -1)
 	{
 		/*buffer = input_parserator(buffer);*/
@@ -39,19 +39,18 @@ int main(void)
 			break;
 		if (_strcmp(buffer, "\n") == 0 || _strcmp(buffer, "\t") == 0)
 		{
-			_write("B-shell$$$ ");
+			_write("BombShell-$ ");
 			continue;
 		}
-
 		words = input_word_counter(buffer);
 		if (words > 0)
 		{
 			input_array = input_to_array(buffer, words);
 			cmd_executor(path_array, input_array);
+			free(input_array);
 		}
-		free(input_array);
-		/*if (pipe == 0)*/
-			_write("B-shell$$$ ");
+		if (pipe == 0)
+			_write("BombShell-$ ");
 	}
 	free_mem(buffer, input_head, env_head, enviroment_list, path_array);
 	exit(EXIT_SUCCESS);
