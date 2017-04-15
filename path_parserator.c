@@ -1,4 +1,9 @@
 #include "shell.h"
+/**
+  * path_parserator - convernts the env_var linked list to a double ptr and parses by directories
+  * @env_head: takes in the environmental variable linked list
+  * Return: returns a double ptr array of environmental variables
+  */
 char **path_parserator(env_var_list_t *env_head)
 {
 	char **array;
@@ -11,7 +16,6 @@ char **path_parserator(env_var_list_t *env_head)
 	temp = env_head;
 	if (!temp)
 		perror("Error\n");
-
 	for(i = 0; temp != NULL; i++)
 	{
 		if (_strcmp(temp->key, p) == 0)

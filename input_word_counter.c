@@ -1,6 +1,10 @@
 #include "shell.h"
-
-int input_word_counter(char * buffer)
+/**
+  * input_word_counter - counts the amount of words the user inputs in getline
+  * @buffer: what the user inputs
+  * Return: the amount of words the user has inputted
+  */
+int input_word_counter(char *buffer)
 {
 	int i, counter;
 
@@ -9,7 +13,7 @@ int input_word_counter(char * buffer)
 		return (0);
 	while(buffer[i] == ' ' || buffer[i] == '\n' || buffer[i] == '\t')
 		i++;
-	if(buffer[i] == '\0')
+	if (buffer[i] == '\0')
 		return(0);
 	while (buffer[i] != '\0')
 	{

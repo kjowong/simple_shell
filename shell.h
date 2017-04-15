@@ -9,7 +9,6 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 #include <signal.h>
-
 /**
  * struct listint_s - singly linked list
  * @n: integer
@@ -69,7 +68,7 @@ char *_memset(char *s, char b, unsigned int n);
 char *_memcopy(char *dest, char *src, unsigned int n);
 char ** conv_list_to_array(env_var_list_t * env_head, int n);
 void free_env_array(char **array);
-void free_mem(char *buffer, list_t *input_head, env_var_list_t *env_head, char **enviroment_list, char **path_array);
+void free_mem(char *buffer, env_var_list_t *env_head, char **enviroment_list, char **path_array);
 void free_path_array(char **array);
 char **path_parserator(env_var_list_t *env_head);
 unsigned int path_folder_counter(char *paths);

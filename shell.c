@@ -4,24 +4,22 @@ int main(void)
 {
 	char *buffer;
 	size_t num_of_env_nodes, i, len;
-	list_t *input_head;
 	env_var_list_t *env_head;
 	char **enviroment_list, **path_array, **input_array;
 	int words = 0;
 	struct stat sb;
-	int read, pipe = 0;
+	int read = 1, pipe = 0;
 
 	len = i = num_of_env_nodes = 0;
 	enviroment_list = path_array = input_array = NULL;
 	env_head = NULL;
-	input_head = NULL;
 	buffer = NULL;
 
 	num_of_env_nodes = create_env_list(&env_head);
 	enviroment_list = conv_list_to_array(env_head, num_of_env_nodes);
 	path_array = path_parserator(env_head);
 
-	signal(SIGINT, INThandler);
+	signal(SIGINT, SIG_IGN);
 
 	if (fstat(STDIN_FILENO, &sb) == -1)
 	{
@@ -54,6 +52,6 @@ int main(void)
 		if (pipe == 0)
 			_write("BombShell-$ ");
 	}
-	free_mem(buffer, input_head, env_head, enviroment_list, path_array);
+	free_mem(buffer, env_head, enviroment_list, path_array);
 	exit(EXIT_SUCCESS);
 }

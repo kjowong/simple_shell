@@ -3,7 +3,7 @@
 int cmd_executor(char **path_folders, char **cmd)
 {
 	char *folder;
-	int i, j, k, l, exec_status, status;
+	int i, j, k, l, status;
 	pid_t pid;
 
 	for(i = 0; cmd[0][i] != '\0'; i++)
@@ -13,11 +13,11 @@ int cmd_executor(char **path_folders, char **cmd)
 			if (access(cmd[0], X_OK) == 0)
 			{
 				pid = fork();
+				if (pid < 0)
+					perror("Error\n");
 				if (pid == 0)
 				{
-					exec_status = execve(cmd[0], cmd, NULL);
-					if(exec_status == -1)
-						exit(EXIT_FAILURE);
+					execve(cmd[0], cmd, NULL);
 					exit(EXIT_SUCCESS);
 				}
 				else
@@ -34,7 +34,6 @@ int cmd_executor(char **path_folders, char **cmd)
 	for(i = 0; path_folders[i] != '\0'; i++)
 	{
 		folder = _grand_malloc(_strlen(path_folders[i]) + _strlen(cmd[0]) + 2);
-
 		for(j = 0; path_folders[i][j] != '\0'; j++)
 			folder[j] = path_folders[i][j];
 		folder[j] = '/';
@@ -45,12 +44,12 @@ int cmd_executor(char **path_folders, char **cmd)
 		if (access(folder, X_OK) == 0)
 		{
 			pid = fork();
+			if (pid < 0)
+				perror("Error\n");
 			if(pid == 0)
 			{
-				exec_status = execve(folder, cmd, NULL);
+				execve(folder, cmd, NULL);
 				free(folder);
-				if (exec_status == -1)
-					exit(EXIT_FAILURE);
 				exit(EXIT_SUCCESS);
 			}
 			else
