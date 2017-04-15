@@ -8,6 +8,8 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include <fcntl.h>
+#include <signal.h>
+
 /**
  * struct listint_s - singly linked list
  * @n: integer
@@ -76,4 +78,6 @@ int cmd_executor(char **path_array, char **input_array);
 char **conv_inputlist_to_array(list_t *input_list_head, size_t i);
 int input_word_counter(char * buffer);
 char **input_to_array(char *buffer, int words);
+char *input_parserator(char *input_buffer);
+void INThandler(int);
 #endif

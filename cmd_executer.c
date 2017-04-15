@@ -28,7 +28,7 @@ int cmd_executor(char **path_folders, char **cmd)
 	}
 	if(cmd[0][i] == '\0' && cmd[0][0] == '/')
 	{
-		printf("BBBBBBBBombShell: Command not found!\n");
+		printf("BombShell: Command not found!\n");
 		return(1);
 	}
 	for(i = 0; path_folders[i] != '\0'; i++)
@@ -60,6 +60,6 @@ int cmd_executor(char **path_folders, char **cmd)
 		}
 		free(folder);
 	}
-	printf("BoooooooooombShell: Command not found!\n");
+	printf("BombShell: Command not found!\n");
 	return(1);
 }
