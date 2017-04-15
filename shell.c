@@ -21,6 +21,8 @@ int main(void)
 	enviroment_list = conv_list_to_array(env_head, num_of_env_nodes);
 	path_array = path_parserator(env_head);
 
+	signal(SIGINT, INThandler);
+
 	if (fstat(STDIN_FILENO, &sb) == -1)
 	{
 		perror("Fail Status");
@@ -31,7 +33,7 @@ int main(void)
 		pipe = 1;
 	}
 	if (pipe == 0)
-	_write("BombShell-$ ");
+		_write("BombShell-$ ");
 	while ((read = getline(&buffer, &len, stdin)) != -1)
 	{
 		/*buffer = input_parserator(buffer);*/
