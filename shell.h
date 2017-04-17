@@ -9,6 +9,7 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 #include <signal.h>
+extern char **environ;
 /**
  * struct listint_s - singly linked list
  * @n: integer
@@ -42,9 +43,25 @@ typedef struct env_var_list_s
 typedef struct builtin_s
 {
 	char * cmd;
-	int (*f)();
+	int (*func)();
 } builtin;
 
+typedef struct all_variables
+{
+	char *buffer;
+	size_t num_of_env_nodes, i, len;
+	list_t *input_head;
+	env_var_list_t *env_head;
+	char **enviroment_list;
+	char **path_array;
+	char **input_array;
+	int words;
+	struct stat sb;
+	int read;
+	int pipe;
+	int (*builtin_func)();
+
+} all_variables_t;
 
 list_t *add_node_end(list_t **head, const char * s);
 int _putchar(char);
@@ -59,7 +76,6 @@ size_t print_env_list(const env_var_list_t *h);
 char *_strdup(const char *str);
 const char * _getenv(const char *name);
 env_var_list_t *add_env_node(env_var_list_t **head, char *env_var);
-int _setenv(const char *name, const char *value, int overwrite);
 int _write(char *s);
 int create_env_list(env_var_list_t **env);
 void free_input_list(list_t *input_head);
@@ -73,9 +89,12 @@ void free_path_array(char **array);
 char **path_parserator(env_var_list_t *env_head);
 unsigned int path_folder_counter(char *paths);
 void *_grand_malloc(size_t mem_needed);
-int cmd_executor(char **path_array, char **input_array);
+int cmd_executor(char **path_array, char **input_array, char **enviroment_array);
 char **conv_inputlist_to_array(list_t *input_list_head, size_t i);
 int input_word_counter(char * buffer);
 char **input_to_array(char *buffer, int words);
 char *input_parserator(char *input_buffer);
+int print_env(size_t num_of_env_nodes, char **enviroment_list, char **input_array, env_var_list_t *env_head);
+int _setenv(size_t num_of_env_nodes, char **enviroment_list, char **input_array, env_var_list_t **env_head);
+int (*get_builtin_func(char * cmd))();
 #endif

@@ -10,7 +10,7 @@ char **path_parserator(env_var_list_t *env_head)
 	unsigned int j, i, num_of_path_folders;
 	env_var_list_t *temp;
 	char *paths, *paths_cp;
-	char *delim = ":";
+	char *delim = ":\n";
 	char *p = "PATH";
 
 	temp = env_head;

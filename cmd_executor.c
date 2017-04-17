@@ -1,9 +1,10 @@
 #include "shell.h"
-int cmd_executor(char **path_folders, char **cmd)
+int cmd_executor(char **path_folders, char **cmd, char **enviroment_array)
 {
 	char *folder;
 	int i, j, k, l, exec_status, status;
 	pid_t pid;
+	i = j = k = l = exec_status = status = 0;
 
 	for(i = 0; cmd[0][i] != '\0'; i++)
 	{
@@ -14,7 +15,7 @@ int cmd_executor(char **path_folders, char **cmd)
 				pid = fork();
 				if (pid == 0)
 				{
-					exec_status = execve(cmd[0], cmd, NULL);
+					exec_status = execve(cmd[0], cmd, enviroment_array);
 					if(exec_status == -1)
 						exit(EXIT_FAILURE);
 					exit(EXIT_SUCCESS);
@@ -45,7 +46,7 @@ int cmd_executor(char **path_folders, char **cmd)
 			pid = fork();
 			if(pid == 0)
 			{
-				exec_status = execve(folder, cmd, NULL);
+				exec_status = execve(folder, cmd, enviroment_array);
 				free(folder);
 				if (exec_status == -1)
 					exit(EXIT_FAILURE);
