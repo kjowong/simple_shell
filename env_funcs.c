@@ -1,6 +1,11 @@
 #include "shell.h"
-extern char **environ;
-env_t * add_env_node(env_t **head, char *env_var)
+/**
+  * add_env_node - addes the env variables to a linked list
+  * @head: head to the env linked list
+  * @env_var: environmental variables
+  * Return: return the environment linked list
+  */
+env_t *add_env_node(env_t **head, char *env_var)
 {
 	env_t *new_node, *tmp;
 	char *env_variable;
@@ -26,10 +31,17 @@ env_t * add_env_node(env_t **head, char *env_var)
 	tmp->next = new_node;
 	return (new_node);
 }
+/**
+  * create_env_list - creates the linked list from environ
+  * @all_var_s: takes in necessary variables
+  * Return: returns the linked list from environ variables
+  */
 int create_env_list(all_variables_t *all_var_s)
 {
 	unsigned int i;
+
 	i = 0;
+
 	while (environ[i] != NULL)
 	{
 		add_env_node(&all_var_s->env_head, environ[i]);
