@@ -15,7 +15,7 @@ int print_env(size_t num_of_env_nodes, char **enviroment_list, char **input_arra
 		_write("\n");
 		i++;
 	}
-	return (i);
+	return (0);
 }
 
 int _setenv(size_t num_of_env_nodes, char **enviroment_list, char **input_array, env_var_list_t **env_head)

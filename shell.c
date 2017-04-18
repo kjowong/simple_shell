@@ -2,25 +2,18 @@
 
 int main(void)
 {
-	char *buffer;
-	size_t num_of_env_nodes, i, len;
-	list_t *input_head;
-	env_var_list_t *env_head;
-	char **enviroment_array, **path_array, **input_array;
-	int words = 0;
+	int (*builtin_func)();
+	all_variables_t bs_vars;
+
 	struct stat sb;
 	int read, pipe = 0;
-	int (*builtin_func)();
+	int i;
 
-	len = i = num_of_env_nodes = 0;
-	enviroment_array = path_array = input_array = NULL;
-	env_head = NULL;
-	input_head = NULL;
-	buffer = NULL;
+	build_all_variables(&bs_vars);
+	bs_vars.num_of_env_nodes = create_env_list(&bs_vars);
+	bs_vars.enviroment_array = conv_list_to_array(bs_vars.env_head, bs_vars.num_of_env_nodes);
+	bs_vars.path_array = path_parserator(bs_vars.env_head);
 
-	num_of_env_nodes = create_env_list(&env_head);
-	enviroment_array = conv_list_to_array(env_head, num_of_env_nodes);
-	path_array = path_parserator(env_head);
 	signal(SIGINT, SIG_IGN);
 
 	if (fstat(STDIN_FILENO, &sb) == -1)
@@ -34,33 +27,34 @@ int main(void)
 	}
 	if (pipe == 0)
 		_write("BombShell-$ ");
-	while ((read = getline(&buffer, &len, stdin)) != -1)
+	while ((read = getline(&bs_vars.buffer, &bs_vars.len, stdin)) != -1)
 	{
+		i = 0;
 		/*buffer = input_parserator(buffer);*/
-		if(_strcmp(buffer, "exit") == 0)
+		if(_strcmp(bs_vars.buffer, "exit") == 0)
 			break;
-		if (_strcmp(buffer, "\n") == 0 || _strcmp(buffer, "\t") == 0)
+		if (_strcmp(bs_vars.buffer, "\n") == 0 || _strcmp(bs_vars.buffer, "\t") == 0)
 		{
 			_write("BombShell-$ ");
 			continue;
 		}
-		words = input_word_counter(buffer);
-		if (words > 0)
+		bs_vars.num_of_tokens = input_word_counter(bs_vars.buffer);
+		if (bs_vars.num_of_tokens > 0)
 		{
-			input_array = input_to_array(buffer, words);
-			builtin_func = get_builtin_func(input_array[0]);
+			bs_vars.input_array = input_to_array(bs_vars.buffer, bs_vars.num_of_tokens);
+			builtin_func = get_builtin_func(bs_vars.input_array[0]);
 			if(builtin_func != NULL)
 			{
-				builtin_func(num_of_env_nodes, enviroment_array, input_array, env_head);
-				_write("BombShell-$ ");
-				continue;
+				builtin_func(bs_vars.num_of_env_nodes, bs_vars.enviroment_array, bs_vars.input_array, bs_vars.env_head);
+				i = 1;
 			}
-			cmd_executor(path_array, input_array, enviroment_array);
-			free(input_array);
+			if (i == 0)
+				cmd_executor(bs_vars.path_array, bs_vars.input_array, bs_vars.enviroment_array);
+			free(bs_vars.input_array);
 		}
 		if (pipe == 0)
 			_write("BombShell-$ ");
 	}
-	free_mem(buffer, input_head, env_head, enviroment_array, path_array);
+	free_mem(bs_vars.buffer, bs_vars.input_head, bs_vars.env_head, bs_vars.enviroment_array, bs_vars.path_array);
 	exit(EXIT_SUCCESS);
 }

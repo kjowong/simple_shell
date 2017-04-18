@@ -18,6 +18,19 @@ int _strcmp(char *s1, char *s2)
 	return (0);
 }
 /**
+ *
+ */
+int _strncmp(char *str1, char *str2, int len)
+{
+	int i;
+
+	for (i = 0; i < len; i++)
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+
+	return (0);
+}
+/**
  * _strcmp - a function that compares two strings for a const char*
  * @s1: first string to compare
  * @s2: second string to compare

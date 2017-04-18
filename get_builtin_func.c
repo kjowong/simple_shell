@@ -15,8 +15,8 @@ int (*get_builtin_func(char *cmd))()
 	};
 	for (i = 0; format[i].cmd; i++)
 	{
-		if(_strcmp(cmd, format[i].cmd) == 0)
+		if(_strncmp(cmd, format[i].cmd, _strlen(format[i].cmd)) == 0)
 			return(format[i].func);
 	}
-	return (NULL);
+	return (0);
 }

@@ -26,13 +26,13 @@ env_var_list_t * add_env_node(env_var_list_t **head, char *env_var)
 	tmp->next = new_node;
 	return (new_node);
 }
-int create_env_list(env_var_list_t **env_head)
+int create_env_list(all_variables_t *all_var_s)
 {
 	unsigned int i;
 	i = 0;
 	while (environ[i] != NULL)
 	{
-		add_env_node(env_head, environ[i]);
+		add_env_node(&all_var_s->env_head, environ[i]);
 		i++;
 	}
 	return (i);

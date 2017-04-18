@@ -49,27 +49,26 @@ typedef struct builtin_s
 typedef struct all_variables
 {
 	char *buffer;
-	size_t num_of_env_nodes, i, len;
+	size_t num_of_env_nodes;
+	size_t len;
 	list_t *input_head;
 	env_var_list_t *env_head;
-	char **enviroment_list;
+	char **enviroment_array;
 	char **path_array;
 	char **input_array;
-	int words;
-	struct stat sb;
-	int read;
-	int pipe;
+	int num_of_tokens;
 	int (*builtin_func)();
 
 } all_variables_t;
-
+all_variables_t *build_all_variables(all_variables_t *var_s);
 list_t *add_node_end(list_t **head, const char * s);
 int _putchar(char);
 int _strlen(const char *s);
 char *_strcat(char *dest, char *src);
 char *_strncat(char *dest, char *src, int n);
 char *_strncpy(char *dest, char *src, int n);
-int _strcmp(char *s1, char *s2);
+int _strcmp(char *str1, char *str2);
+int _strncmp(char *str1, char *str2, int len);
 int _strcmp_env(const char *s1, const char *s2);
 size_t print_input_list(const list_t *h);
 size_t print_env_list(const env_var_list_t *h);
@@ -77,7 +76,7 @@ char *_strdup(const char *str);
 const char * _getenv(const char *name);
 env_var_list_t *add_env_node(env_var_list_t **head, char *env_var);
 int _write(char *s);
-int create_env_list(env_var_list_t **env);
+int create_env_list(all_variables_t *all_var_s);
 void free_input_list(list_t *input_head);
 void free_env_list(env_var_list_t *env_head);
 char *_memset(char *s, char b, unsigned int n);
@@ -92,7 +91,7 @@ void *_grand_malloc(size_t mem_needed);
 int cmd_executor(char **path_array, char **input_array, char **enviroment_array);
 char **conv_inputlist_to_array(list_t *input_list_head, size_t i);
 int input_word_counter(char * buffer);
-char **input_to_array(char *buffer, int words);
+char **input_to_array(char *buffer, int num_of_tokens);
 char *input_parserator(char *input_buffer);
 int print_env(size_t num_of_env_nodes, char **enviroment_list, char **input_array, env_var_list_t *env_head);
 int _setenv(size_t num_of_env_nodes, char **enviroment_list, char **input_array, env_var_list_t **env_head);

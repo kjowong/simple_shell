@@ -8,7 +8,7 @@ int cmd_executor(char **path_folders, char **cmd, char **enviroment_array)
 
 	for(i = 0; cmd[0][i] != '\0'; i++)
 	{
-		if(cmd[0][i] == '/')
+		if(cmd[0][i] == '/' && cmd[0][i + 1] != '\0' && cmd[0][i + 1] != '/')
 		{
 			if (access(cmd[0], X_OK) == 0)
 			{
