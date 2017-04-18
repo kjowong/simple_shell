@@ -1,5 +1,10 @@
 #include "shell.h"
-
+/**
+  * conv_inputlist_to_array - converts linked list to double ptr array
+  * @input_list_head: pointer to input linked list
+  * @i: number of nodes
+  * Return: the converted input array
+  */
 char **conv_inputlist_to_array(list_t *input_list_head, size_t i)
 {
 	char **input_array;
@@ -9,7 +14,7 @@ char **conv_inputlist_to_array(list_t *input_list_head, size_t i)
 
 	tmp = input_list_head;
 	input_array = _grand_malloc(sizeof(char *) * (i + 1));
-	while(tmp != NULL)
+	while (tmp != NULL)
 	{
 		len = _strlen(tmp->str);
 		input_array[j] = _grand_malloc(sizeof(char) * (len + 1));
@@ -19,5 +24,5 @@ char **conv_inputlist_to_array(list_t *input_list_head, size_t i)
 	}
 	input_array[j] = NULL;
 
-	return(input_array);
+	return (input_array);
 }
