@@ -8,9 +8,9 @@ char **input_to_array(char *buffer, int words)
 	for(i = 0; i < words; i++)
 	{
 		if (i == 0)
-			input_array[i] = strtok(buffer, " \n\t");
+			input_array[i] = strtok(buffer, " \n\t\r\"");
 		else
-			input_array[i] = strtok(NULL, " \n\t");
+			input_array[i] = strtok(NULL, " \n\t\r\"");
 	}
 	if (input_array[i - 1] != NULL)
 		input_array[i] = NULL;
