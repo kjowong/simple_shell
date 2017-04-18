@@ -5,10 +5,10 @@
   * @n: the amount of nodes
   * Return: the converted double ptr array
   */
-char **conv_list_to_array(env_var_list_t *env_head, int n)
+char **conv_list_to_array(env_t *env_head, int n)
 {
 	char **array;
-	env_var_list_t *tmp;
+	env_t *tmp;
 	int len, i, j;
 	char *val;
 

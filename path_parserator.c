@@ -4,18 +4,18 @@
   * @env_head: takes in the environmental variable linked list
   * Return: returns a double ptr array of environmental variables
   */
-char **path_parserator(env_var_list_t *env_head)
+char **path_parserator(env_t *env_head)
 {
 	char **array;
 	unsigned int j, i, num_of_path_folders;
-	env_var_list_t *temp;
+	env_t *temp;
 	char *paths, *paths_cp;
 	char *delim = ":\n";
 	char *p = "PATH";
 
 	temp = env_head;
 	if (!temp)
-		perror("Error\n");
+		perror("Error");
 	for(i = 0; temp != NULL; i++)
 	{
 		if (_strcmp(temp->key, p) == 0)
