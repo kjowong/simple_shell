@@ -12,19 +12,22 @@ Once cloned over, the repository will contain the following files:
 |   **File**    |  **Decription**                       |
 |---------------|---------------------------------------|
 | shell.h   | header file with prototypes           |
-| printf.c      | contains main printf function         |
-| _putchar.c     | contains putchar function             |
-| string_specifiers.c | contains functions for **s** and **c** |
-| string_spec_helpers.c     | contains functions to help with string functions in string_specifiers.c|
-| signed_decimal_specifiers.c | contains functions for **d** and **i** |
-| unsigned_specifiers.c | contains functions for **o**, **u**, **x**, **X** |
-| binary_specifier.c     | contains functions for **b**|
-| pointer_address_specifiers.c | contains functions for **p** |
-| write_percent specifiers.c | contains functions for **'%'** |
-| write_buffer.c     | contains functions to write to the buffer |
-| reset_buffer.c     | contains functions to reset the buffer |
-| rev_string.c     | contains functions to reverse strings |
-| rot_13.c     | contains functions to converts a string to rot13 format |
+| shell.c      | contains main function to the shell         |
+| build_all_variables.c     | struct function that builds the variables             |
+| builtin_funcs.c | functions for builtin commands |
+| cmd_executor.c     | function that executes the commands from user input|
+| env_funcs.c | functions to handle the environment |
+| free_mem.c | functions that free memory allocation |
+| get_builtin_func.c     | function that get the b|
+| input_funcs.c | contains functions to handler user input |
+| input_list_to_array.c | converts the input linked list to a double pointer |
+| input_parserator.c     | function to parse the user's input |
+| input_to_array.c     | function |
+| input_word_counter.c     | counts the words in the user's input |
+| list_to_2d_array.c     | converts env linked list into a double pointer array |
+| memory_funcs.c     | contains functions to allocate memory |
+| path_parserator.c     | parses the path by `:` into directories |
+| print_funcs.c     | contains functions to print the list |
 
 ## How to Use
 There are two ways to use the _printf function in your code.
