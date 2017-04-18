@@ -18,7 +18,11 @@ int _strcmp(char *s1, char *s2)
 	return (0);
 }
 /**
- *
+ * _strncmp - function that compares two strings
+ * @str1: first string to compare
+ * @str2: secod string to compare
+ * @len: takes in the length
+ * Return: 0
  */
 int _strncmp(char *str1, char *str2, int len)
 {
@@ -27,11 +31,10 @@ int _strncmp(char *str1, char *str2, int len)
 	for (i = 0; i < len; i++)
 		if (str1[i] != str2[i])
 			return (str1[i] - str2[i]);
-
 	return (0);
 }
 /**
- * _strcmp - a function that compares two strings for a const char*
+ * _strcmp_env - a function that compares two strings for a const char*
  * @s1: first string to compare
  * @s2: second string to compare
  * Return: an integer result of the comparison
@@ -61,7 +64,6 @@ char *_strdup(const char *str)
 
 	if (str == NULL)
 		return (NULL);
-
 	string = _grand_malloc(sizeof(char) * (_strlen(str) + 1));
 	for (i = 0; str[i] != '\0'; i++)
 	{
@@ -86,23 +88,4 @@ int _strlen(const char *s)
 		i++;
 	}
 	return (i);
-}
-/**
- * path_to_folder_counter - counts how many folders are in the path
- * @paths: takes in the path
- * Return: the number of folders in a path
- */
-unsigned int path_folder_counter(char *paths)
-{
-	unsigned int i, path_folders;
-
-	i = path_folders = 0;
-
-	while(paths[i] != '\0')
-	{
-		if(paths[i] == ':')
-			path_folders++;
-		i++;
-	}
-	return(++path_folders);
 }

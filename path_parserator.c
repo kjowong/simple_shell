@@ -1,6 +1,25 @@
 #include "shell.h"
 /**
-  * path_parserator - convernts the env_var linked list to a double ptr and parses by directories
+ * path_folder_counter - counts how many folders are in the path
+ * @paths: takes in the path
+ * Return: the number of folders in a path
+ */
+unsigned int path_folder_counter(char *paths)
+{
+	unsigned int i, path_folders;
+
+	i = path_folders = 0;
+
+	while (paths[i] != '\0')
+	{
+		if (paths[i] == ':')
+			path_folders++;
+		i++;
+	}
+	return (++path_folders);
+}
+/**
+  * path_parserator - converts env linked list to double ptr, parses by dirs
   * @env_head: takes in the environmental variable linked list
   * Return: returns a double ptr array of environmental variables
   */
@@ -16,7 +35,7 @@ char **path_parserator(env_t *env_head)
 	temp = env_head;
 	if (!temp)
 		perror("Error");
-	for(i = 0; temp != NULL; i++)
+	for (i = 0; temp != NULL; i++)
 	{
 		if (_strcmp(temp->key, p) == 0)
 		{
@@ -38,5 +57,5 @@ char **path_parserator(env_t *env_head)
 		}
 		temp = temp->next;
 	}
-	return(array);
+	return (array);
 }
