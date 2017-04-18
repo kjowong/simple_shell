@@ -1,4 +1,4 @@
-# BombShell 
+# BombShell <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTdxQPr9FkVYsRxM7ySHgsILc8J088ci9Sv553GxerdPLmGPhWA18xJRbM" width="45">
 
 This project is about recreating the shell in the C language, replicating some of processes of the `sh` shell. This version will be used as `./hsh`.
 ## Environment
