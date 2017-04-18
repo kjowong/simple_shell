@@ -1,10 +1,10 @@
 #include "shell.h"
-int cmd_executor(char **path_folders, char **cmd, char **enviroment_array)
+int cmd_executor(char **path_folders, char **cmd, char **env_array)
 {
 	char *folder;
-	int i, j, k, l, exec_status, status;
+	int i, j, k, l, status;
 	pid_t pid;
-	i = j = k = l = exec_status = status = 0;
+	i = j = k = l = status = 0;
 
 	for(i = 0; cmd[0][i] != '\0'; i++)
 	{
@@ -13,11 +13,14 @@ int cmd_executor(char **path_folders, char **cmd, char **enviroment_array)
 			if (access(cmd[0], X_OK) == 0)
 			{
 				pid = fork();
+				if (pid < 0)
+				{
+					perror("Fork Failed");
+					exit(EXIT_FAILURE);
+				}
 				if (pid == 0)
 				{
-					exec_status = execve(cmd[0], cmd, enviroment_array);
-					if(exec_status == -1)
-						exit(EXIT_FAILURE);
+					execve(cmd[0], cmd, env_array);
 					exit(EXIT_SUCCESS);
 				}
 				else
@@ -28,7 +31,8 @@ int cmd_executor(char **path_folders, char **cmd, char **enviroment_array)
 	}
 	if(cmd[0][i] == '\0' && cmd[0][0] == '/')
 	{
-		printf("BombShell: Command not found!\n");
+		_write(cmd[0]);
+		_write(": No such file or directory\n");
 		return(1);
 	}
 	for(i = 0; path_folders[i] != '\0'; i++)
@@ -44,12 +48,15 @@ int cmd_executor(char **path_folders, char **cmd, char **enviroment_array)
 		if (access(folder, X_OK) == 0)
 		{
 			pid = fork();
+			if (pid < 0)
+			{
+				perror("Fork Failed");
+				exit(EXIT_FAILURE);
+			}
 			if(pid == 0)
 			{
-				exec_status = execve(folder, cmd, enviroment_array);
+				execve(folder, cmd, env_array);
 				free(folder);
-				if (exec_status == -1)
-					exit(EXIT_FAILURE);
 				exit(EXIT_SUCCESS);
 			}
 			else
@@ -59,6 +66,7 @@ int cmd_executor(char **path_folders, char **cmd, char **enviroment_array)
 		}
 		free(folder);
 	}
-	printf("BombShell: Command not found!\n");
+	_write(cmd[0]);
+	_write(": command not found\n");
 	return(1);
 }
