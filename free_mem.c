@@ -59,11 +59,11 @@ void free_path_array(char **array)
  * @environmental_list: environmental variable double ptr array
  * @path_array: double ptr array of the path
  */
-void free_mem(char *buffer, list_t *input_head, env_t *env_head, char **env_list, char **path_array)
+void free_mem(all_variables_t *vars)
 {
-	free(buffer);
-	free_input_list(input_head);
-	free_env_list(env_head);
-	free_env_array(env_list);
-	free_path_array(path_array);
+	free(vars->buf);
+	free_input_list(vars->in_hd);
+	free_env_list(vars->env_hd);
+	free_env_array(vars->env_ar);
+	free_path_array(vars->pth_ar);
 }

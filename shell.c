@@ -57,6 +57,6 @@ int main(void)
 		if (pipe == 0)
 			_write("BombShell-$ ");
 	}
-	free_mem(vars.buf, vars.in_hd, vars.env_hd, vars.env_ar, vars.pth_ar);
+	free_mem(&vars);
 	exit(EXIT_SUCCESS);
 }

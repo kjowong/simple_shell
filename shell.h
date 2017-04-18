@@ -95,8 +95,9 @@ int _setenv(size_t n_env_nodes, char **env_ar, char **in_ar, env_t **env_hd);
 char **path_parserator(env_t *env_hd);
 
 /* Free Functions */
+void free_mem(all_variables_t *vars);
 void free_env_array(char **env_ar);
-void free_mem(char *buf, list_t *in_hd, env_t *env_hd, char **env_ar, char **pth_ar);
+/*void free_mem(char *buf, list_t *in_hd, env_t *env_hd, char **env_ar, char **pth_ar);*/
 void free_path_array(char **ar);
 void free_input_list(list_t *in_hd);
 void free_env_list(env_t *env_hd);
