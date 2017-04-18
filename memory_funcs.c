@@ -24,7 +24,7 @@ void *_grand_malloc(size_t mem_needed)
 	return (malloced_head);
 }
 /**
- * _memcpy -  a function that copies memory area
+ * _memcopy -  a function that copies memory area
  * @src: pointer to be copied
  * @dest: pointer to copy the source to
  * @n: the number of bytes to be copied
