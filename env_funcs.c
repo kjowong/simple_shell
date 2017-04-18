@@ -1,11 +1,11 @@
 #include "shell.h"
 extern char **environ;
-env_var_list_t * add_env_node(env_var_list_t **head, char *env_var)
+env_t * add_env_node(env_t **head, char *env_var)
 {
-	env_var_list_t *new_node, *tmp;
+	env_t *new_node, *tmp;
 	char *env_variable;
 
-	new_node = _grand_malloc(sizeof(env_var_list_t));
+	new_node = _grand_malloc(sizeof(env_t));
 	env_variable = _strdup(env_var);
 	if (env_variable == NULL)
 	{

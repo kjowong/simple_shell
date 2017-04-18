@@ -16,7 +16,7 @@ void free_input_list(list_t *head)
  * free_env_list - frees the environmental variable linked list
  * @head: pointer to the list head
  */
-void free_env_list(env_var_list_t *head)
+void free_env_list(env_t *head)
 {
 	if (head == NULL)
 		return;
@@ -59,7 +59,7 @@ void free_path_array(char **array)
  * @environmental_list: environmental variable double ptr array
  * @path_array: double ptr array of the path
  */
-void free_mem(char *buffer, list_t *input_head, env_var_list_t *env_head, char **enviroment_list, char **path_array)
+void free_mem(char *buffer, list_t *input_head, env_t *env_head, char **enviroment_list, char **path_array)
 {
 	free(buffer);
 	free_input_list(input_head);
