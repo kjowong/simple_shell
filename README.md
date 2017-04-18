@@ -85,8 +85,8 @@ This _printf function currently does not support special flags [+ , - , `, \0 , 
 There are no known bugs at the time.
 
 ### Authors
-*Kimberly Wong* - [Github](https://github.com/kjowong) || [Twitter](https://twitter.com/kjowong) || [email](kimberly.wong@holbertonschool.com)
+*Christian Agha* - [Github](https://github.com/ChristianAgha) || [Twitter](https://twitter.com/ChristyanAgha) || [email](christianagha@gmail.com)
 
-*Lisa Leung* - [Github](https://github.com/lisale0) || [Twitter](https://twitter.com/lisale01) || [email](lisa.leung@holbertonschool.com)
+*Kimberly Wong* - [Github](https://github.com/kjowong) || [Twitter](https://twitter.com/kjowong) || [email](kimberly.wong@holbertonschool.com)
 
 #### Feedback and contributors welcomed. Reach out to either authors.
