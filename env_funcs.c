@@ -44,7 +44,7 @@ int create_env_list(all_variables_t *all_var_s)
 
 	while (environ[i] != NULL)
 	{
-		add_env_node(&all_var_s->env_head, environ[i]);
+		add_env_node(&all_var_s->env_hd, environ[i]);
 		i++;
 	}
 	return (i);

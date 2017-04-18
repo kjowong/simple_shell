@@ -59,15 +59,15 @@ typedef struct builtin_s
   */
 typedef struct all_variables
 {
-	char *buffer;
-	size_t num_of_env_nodes;
+	char *buf;
+	size_t n_env_nod;
 	size_t len;
-	list_t *input_head;
-	env_t *env_head;
-	char **env_array;
-	char **path_array;
-	char **input_array;
-	int num_of_tokens;
+	list_t *in_hd;
+	env_t *env_hd;
+	char **env_ar;
+	char **pth_ar;
+	char **in_ar;
+	int n_tok;
 	int (*builtin_func)();
 
 } all_variables_t;
