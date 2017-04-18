@@ -80,34 +80,34 @@ char *_strncat(char *dest, char *src, int n);
 char *_strncpy(char *dest, char *src, int n);
 int _strcmp(char *str1, char *str2);
 int _strncmp(char *str1, char *str2, int len);
-int _strcmp_env(const char *s1, const char *s2);
+int _strcmp_env(const char *str1, const char *str2);
 char *_strdup(const char *str);
-int _write(char *s);
+int _write(char *str);
 
 /* Environment Functions */
 size_t print_env_list(const env_t *h);
 const char *_getenv(const char *name);
-env_t *add_env_node(env_t **head, char *env_var);
-int create_env_list(all_variables_t *all_var_s);
-char **conv_list_to_array(env_t *env_head, int n);
-int print_env(size_t num_of_env_nodes, char **env_list, char **input_array, env_t *env_head);
-int _setenv(size_t num_of_env_nodes, char **env_list, char **input_array, env_t **env_head);
-char **path_parserator(env_t *env_head);
+env_t *add_env_node(env_t **env_hd, char *env_var);
+int create_env_list(all_variables_t *vars);
+char **conv_list_to_array(env_t *env_hd, int n);
+int print_env(size_t n_env_nodes, char **env_ar, char **in_ar, env_t *env_hd);
+int _setenv(size_t n_env_nodes, char **env_ar, char **in_ar, env_t **env_hd);
+char **path_parserator(env_t *env_hd);
 
 /* Free Functions */
-void free_env_array(char **array);
-void free_mem(char *buffer, list_t *input_head, env_t *env_head, char **env_list, char **path_array);
-void free_path_array(char **array);
-void free_input_list(list_t *input_head);
-void free_env_list(env_t *env_head);
+void free_env_array(char **env_ar);
+void free_mem(char *buf, list_t *in_hd, env_t *env_hd, char **env_ar, char **pth_ar);
+void free_path_array(char **ar);
+void free_input_list(list_t *in_hd);
+void free_env_list(env_t *env_hd);
 
 /* Input Functions */
 size_t print_input_list(const list_t *h);
-int input_word_counter(char *buffer);
-char **input_to_array(char *buffer, int num_of_tokens);
-char *input_parserator(char *input_buffer);
-char **conv_inputlist_to_array(list_t *input_list_head, size_t i);
-list_t *add_node_end(list_t **head, const char *s);
+int input_word_counter(char *buf);
+char **input_to_array(char *buf, int n_tok);
+char *input_parserator(char *in_buf);
+char **conv_inputlist_to_array(list_t *in_hd, size_t i);
+list_t *add_node_end(list_t **hd, const char *s);
 
 /* Memory Functions */
 void *_grand_malloc(size_t mem_needed);
@@ -120,5 +120,5 @@ int (*get_builtin_func(char *cmd))();
 
 /* Execution Functions */
 unsigned int path_folder_counter(char *paths);
-int cmd_executor(char **path_array, char **input_array, char **env_array);
+int cmd_executor(char **path_ar, char **in_ar, char **env_ar);
 #endif
