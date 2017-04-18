@@ -1,9 +1,9 @@
-.TH _printf 1 "17 March 2017" "0.1" "_printf man page"
+.TH BombShell 1 "5 April 2017" "0.1" "BombShell man page"
 .SH NAME
-.B _printf - format data and print output into stdout
+.B BombShell, hsh - the standard command interpreter
 .SH SYNOPSIS
 .IP
-.I #include "holberton.h"
+.I #include "shell.h"
 .IP
 .I int _printf(const char *format, ...);
 .IP
@@ -52,5 +52,5 @@ No known bugs.
 .SH DEVELOPER(s) NOTES
 This _printf function currently does not support special flags [+ , - , `, \0 , #], field, width or precision. They are currently in development.
 .SH AUTHORS
-Kimberly Wong, Lisa Leung
+Kimberly Wong, Christian Agha
 
