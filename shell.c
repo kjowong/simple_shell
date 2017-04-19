@@ -6,9 +6,7 @@
  */
 int main(void)
 {
-	int (*builtin_func)();
 	all_variables_t vars;
-
 	struct stat sb;
 	int read, pipe = 0;
 	int i;
@@ -44,10 +42,10 @@ int main(void)
 		if (vars.n_tok > 0)
 		{
 			vars.in_ar = input_to_array(vars.buf, vars.n_tok);
-			builtin_func = get_builtin_func(vars.in_ar[0]);
-			if (builtin_func != NULL)
+			vars.builtin_func = get_builtin_func(vars.in_ar[0]);
+			if (vars.builtin_func != NULL)
 			{
-				builtin_func(vars.n_env_nod, vars.env_ar, vars.in_ar, vars.env_hd);
+				vars.builtin_func(vars.n_env_nod, vars.env_ar, vars.in_ar, vars.env_hd);
 				i = 1;
 			}
 			if (i == 0)
