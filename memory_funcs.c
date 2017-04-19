@@ -13,7 +13,7 @@ void *_grand_malloc(size_t mem_needed)
 	malloced_head  = malloc(mem_needed);
 	if (malloced_head == NULL)
 	{
-		perror("No memory needed to allocate");
+		perror("OUT OF MEMORY!!!! RUN AWAY!!!!!");
 		exit(EXIT_FAILURE);
 	}
 	while (i < mem_needed)
