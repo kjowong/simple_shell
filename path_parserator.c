@@ -34,7 +34,7 @@ char **path_parserator(env_t *env_head)
 
 	temp = env_head;
 	if (!temp)
-		perror("Error");
+		perror("Error: environment list head is NULL");
 	for (i = 0; temp != NULL; i++)
 	{
 		if (_strcmp(temp->key, p) == 0)
