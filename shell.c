@@ -36,9 +36,9 @@ int main(void)
 				i = 1;
 			}
 			if (i == 0)
-				i = path_executor(vars.in_ar, vars.env_ar);
-			if (i == 1)
-				cmd_executor(vars.pth_ar, vars.in_ar, vars.env_ar);
+				i = full_path_executor(vars.in_ar, vars.env_ar);
+			if (i == 2)
+				path_cmd_executor(vars.pth_ar, vars.in_ar, vars.env_ar);
 			free(vars.in_ar);
 		}
 		if (pipe == 0)

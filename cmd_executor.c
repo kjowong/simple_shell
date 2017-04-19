@@ -5,7 +5,7 @@
   * @env_array: double pointer to the environment array
   * Return: status on success 2 on failure
   */
-int path_executor(char **cmd, char **env_array)
+int full_path_executor(char **cmd, char **env_array)
 {
 	int i, j, k, l, status;
 	pid_t pid;
@@ -49,7 +49,7 @@ int path_executor(char **cmd, char **env_array)
  * @env_array: double pointer to the environment array
  * Return: status on success 1 on failure
  */
-int cmd_executor(char **path_folders, char **cmd, char **env_array)
+int path_cmd_executor(char **path_folders, char **cmd, char **env_array)
 {
 	int i, j, k, l, status;
 	char *folder;

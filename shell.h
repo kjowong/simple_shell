@@ -120,6 +120,6 @@ int (*get_builtin_func(char *cmd))();
 
 /* Execution Functions */
 unsigned int path_folder_counter(char *paths);
-int path_executor(char **in_ar, char **env_ar);
-int cmd_executor(char **path_ar, char **in_ar, char **env_ar);
+int full_path_executor(char **in_ar, char **env_ar);
+int path_cmd_executor(char **path_ar, char **in_ar, char **env_ar);
 #endif
