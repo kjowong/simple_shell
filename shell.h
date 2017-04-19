@@ -103,7 +103,7 @@ void free_env_list(env_t *env_hd);
 
 /* Input Functions */
 size_t print_input_list(const list_t *h);
-int input_word_counter(char *buf);
+int input_token_count(char *buf);
 char **input_to_array(char *buf, int n_tok);
 char *input_parserator(char *in_buf);
 char **conv_inputlist_to_array(list_t *in_hd, size_t i);

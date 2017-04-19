@@ -27,7 +27,7 @@ int main(void)
 			break;
 		if (_strcmp(vars.buf, "\n") == 0 || _strcmp(vars.buf, "\t") == 0)
 		{ _write("$ "); continue; }
-		vars.n_tok = input_word_counter(vars.buf);
+		vars.n_tok = input_token_count(vars.buf);
 		if (vars.n_tok > 0)
 		{	vars.in_ar = input_to_array(vars.buf, vars.n_tok);
 			vars.builtin_func = get_builtin_func(vars.in_ar[0]);

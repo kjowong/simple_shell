@@ -4,7 +4,7 @@
   * @buffer: what the user inputs
   * Return: the amount of words the user has inputted
   */
-int input_word_counter(char *buf)
+int input_token_count(char *buf)
 {
 	int i, counter;
 
