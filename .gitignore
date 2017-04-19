@@ -7,3 +7,4 @@ test.out
 pid.c
 ppid.c
 test_ls_2
+ls
