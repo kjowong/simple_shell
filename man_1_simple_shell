@@ -3,20 +3,16 @@
 .B BombShell, hsh - the standard command interpreter
 .SH SYNOPSIS
 .IP
-.I #include "shell.h"
-.IP
-.I int _printf(const char *format, ...);
-.IP
-.I _printf [FORMAT][ARGUMENT]...
+.I hsh [-acefhikmnprstuvx] [arg] ...
 
 .SH DESCRIPTION
+BombShell (hsh) is a command language interpretor for the system that executes commands read from the standard input or from a file.
 
-The functions in _printf() produces output according to the format specifiers provided below. Each argument passed into _printf is written out into stdout, the standard output stream. The format controls the output in _printf.
+.SH OVERVIEW
 
-.SH RETURN VALUE
-Upon a successful return, _printf will return the number of characters printed. Null byte used to end string outputs is excluded. _printf will return an exit status of -1 upon failure.
+.SH INVOCATION
 
-.SH FORMAT OF FUNCTION
+.SH ARGUMENT LIST PROCESSING
 The format of _printf is a character string and can include zero or more format specifiers, each matching zero or more arguments being passed in. Each format specifier begans with "%" followed by the character to the specific format specifier such as "%s". By default, arguments passed in must followed the order of the each format specifier. For example:
 .IP
 .B _printf("This is a %s of %d", "string", 5);
@@ -47,10 +43,12 @@ The argument passed for specifiers "%o", "%u", "%x", and "%X" are handled as fol
 .IP p
 The void * pointer argument is printed in hexadecimal
 
+
+
 .SH BUGS
 No known bugs.
 .SH DEVELOPER(s) NOTES
-This _printf function currently does not support special flags [+ , - , `, \0 , #], field, width or precision. They are currently in development.
+They are currently in development.
 .SH AUTHORS
 Kimberly Wong, Christian Agha
 
