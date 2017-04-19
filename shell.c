@@ -1,9 +1,9 @@
 #include "shell.h"
 /**
-  * main - shell entry block
-  * @void: no argument
-  * Return: Exit Success
-  */
+ * main - shell entry block
+ * @void: no argument
+ * Return: Exit Success
+ */
 int main(void)
 {
 	int (*builtin_func)();

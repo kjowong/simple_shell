@@ -1,9 +1,9 @@
 #include "shell.h"
 /**
-  * input_parserator - parese the input
-  * @input_buffer: buffer that holds the input
-  * Return: returns the input, parsed
-  */
+ * input_parserator - parese the input
+ * @input_buffer: buffer that holds the input
+ * Return: returns the input, parsed
+ */
 char *input_parserator(char *input_buffer)
 {
 	char *parsed_input;

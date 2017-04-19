@@ -29,7 +29,7 @@ char **path_parserator(env_t *env_head)
 	unsigned int j, i, num_of_path_folders;
 	env_t *temp;
 	char *paths, *paths_cp;
-	char *delim = ":\n";
+	char *delim = ":";
 	char *p = "PATH";
 
 	temp = env_head;
@@ -53,7 +53,6 @@ char **path_parserator(env_t *env_head)
 			{
 				array[j] = strtok(NULL, delim);
 			}
-			array[j] = NULL;
 		}
 		temp = temp->next;
 	}
