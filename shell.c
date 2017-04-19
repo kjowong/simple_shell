@@ -51,6 +51,8 @@ int main(void)
 				i = 1;
 			}
 			if (i == 0)
+				i = path_executor(vars.in_ar, vars.env_ar);
+			if (i == 1)
 				cmd_executor(vars.pth_ar, vars.in_ar, vars.env_ar);
 			free(vars.in_ar);
 		}

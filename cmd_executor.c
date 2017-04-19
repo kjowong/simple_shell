@@ -6,9 +6,8 @@
   * @env_array: double pointer to the environment linked list
   * Return: 1
  */
-int cmd_executor(char **path_folders, char **cmd, char **env_array)
+int path_executor(char **cmd, char **env_array)
 {
-	char *folder;
 	int i, j, k, l, status;
 	pid_t pid;
 
@@ -42,6 +41,14 @@ int cmd_executor(char **path_folders, char **cmd, char **env_array)
 		_write(": No such file or directory\n");
 		return (1);
 	}
+	return(1);
+}
+int cmd_executor(char **path_folders, char **cmd, char **env_array)
+{
+	int i, j, k, l, status;
+	char *folder;
+	pid_t pid;
+
 	for (i = 0; path_folders[i] != '\0'; i++)
 	{
 		folder = _grand_malloc(_strlen(path_folders[i]) + _strlen(cmd[0]) + 2);
