@@ -8,16 +8,13 @@ int main(void)
 {
 	all_variables_t vars;
 	struct stat sb;
-	int read, pipe = 0;
-	int i;
+	int i = 0, pipe = 0;
 
 	build_all_variables(&vars);
 	vars.n_env_nod = create_env_list(&vars);
 	vars.env_ar = conv_list_to_array(vars.env_hd, vars.n_env_nod);
 	vars.pth_ar = path_parserator(vars.env_hd);
-
 	signal(SIGINT, SIG_IGN);
-
 	if (fstat(STDIN_FILENO, &sb) == -1)
 	{
 		perror("Fstat Failed");
@@ -27,10 +24,9 @@ int main(void)
 		pipe = 1;
 	if (pipe == 0)
 		_write("$ ");
-	while ((read = getline(&vars.buf, &vars.len, stdin)) != -1)
+	while (getline(&vars.buf, &vars.len, stdin) != -1)
 	{
 		i = 0;
-		/*buffer = input_parserator(buffer);*/
 		if (_strcmp(vars.buf, "exit") == 0)
 			break;
 		if (_strcmp(vars.buf, "\n") == 0 || _strcmp(vars.buf, "\t") == 0)
