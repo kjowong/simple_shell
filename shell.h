@@ -46,16 +46,16 @@ typedef struct builtin_s
 } builtin;
 /**
   * struct all_variables - struct that holds all variables for functions
-  * @buffer: buffer for user input
-  * @num_of_env_nodes: number of nodes in environment linked list
+  * @buf: buffer for user input
+  * @n_env_nod: number of nodes in environment linked list
   * @len: length
-  * @input_head: user input in a linked list
-  * @env_head: environment variable linked list
-  * @env_array: environment variables in double pointer array
-  * @path_array: the path in a double pointer array
-  * @input_array: user input in double pointer array
-  * @num_of_tokens: the number of tokens
-  * builtin_func: function pointer
+  * @in_hd: user input in a linked list
+  * @env_hd: environment variable linked list
+  * @env_ar: environment variables in double pointer array
+  * @pth_ar: the path in a double pointer array
+  * @in_ar: user input in double pointer array
+  * @n_tok: the number of tokens
+  * @builtin_func: pointer to builtin function
   */
 typedef struct all_variables
 {
