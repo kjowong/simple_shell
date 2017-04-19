@@ -1,0 +1,54 @@
+.TH BombShell 1 "5 April 2017" "0.1" "BombShell man page"
+.SH NAME
+.B BombShell, hsh - the standard command interpreter
+.SH SYNOPSIS
+.IP
+.I hsh [-acefhikmnprstuvx] [arg] ...
+
+.SH DESCRIPTION
+BombShell (hsh) is a command language interpretor for the system that executes commands read from the standard input or from a file.
+
+.SH OVERVIEW
+
+.SH INVOCATION
+
+.SH ARGUMENT LIST PROCESSING
+The format of _printf is a character string and can include zero or more format specifiers, each matching zero or more arguments being passed in. Each format specifier begans with "%" followed by the character to the specific format specifier such as "%s". By default, arguments passed in must followed the order of the each format specifier. For example:
+.IP
+.B _printf("This is a %s of %d", "string", 5);
+.IP
+.B $ "This is a string of 5"
+.SH FORMAT SPECIFIERS
+.IP s
+The argument passed for specifier "%s" is a literal string in consta char *, which will be a pointer to an array of character type that points to a string. Characters from the array are written up to (but not including ) the terminating null bye ('/0').
+does not take any options. However, you can supply studentname.
+.IP c
+The argument passed for specifier "%c" is of type int. which is then converted to an unsigned char, which is then written. 
+.IP %
+The argument passed is not converted and will simply be written as "%". To write out "%", format must be "%%". 
+.IP d,i
+The argument passed for specifiers "%d" and "%i" is an int argument converted into signed decimal notation. In _printf, the specifiers are handled the same way. The precision functionality, the number of digits that appears in beginning, is still in development and will be added at an later time.
+.IP r
+The argument passed for specifier "%r" has the same conversion functionality as "%s", but writes the output into the buffer in reverse order.
+.IP R
+The argument passed for specifier "%R" converts the argument from a string literal into rot13.
+.IP o,u,x,X
+The argument passed for specifiers "%o", "%u", "%x", and "%X" are handled as follows:
+.IP
+"%o" takes in an unsigned integer and converts the argument into an unsigned octal.
+.IP
+"%u" takes in an unsigned integer and converts the argument into an unsigned decimal
+.IP
+"%x","%X" takes in an unsiged integer and converts the argument into an unsigned hexadecimal. For "x", letters "abcdef" are used while for "X", letters "ABCDEF" are used.
+.IP p
+The void * pointer argument is printed in hexadecimal
+
+
+
+.SH BUGS
+No known bugs.
+.SH DEVELOPER(s) NOTES
+They are currently in development.
+.SH AUTHORS
+Kimberly Wong, Christian Agha
+

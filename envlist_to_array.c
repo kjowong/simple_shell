@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
-  * conv_list_to_array - converts an env_var linked list into a double ptr array
+  * conv_list_to_array - converts env_var linked list into a double ptr array
   * @env_head: takes in an env_var linked list
   * @n: the amount of nodes
   * Return: the converted double ptr array
@@ -22,8 +22,9 @@ char **conv_list_to_array(env_t *env_head, int n)
 		array[i] = _grand_malloc(sizeof(char) * (len + 2));
 		if (array[i] == NULL)
 		{
+			perror("Array is empty");
 			free(array);
-			return(NULL);
+			return (NULL);
 		}
 		_memset(array[i], '\0', len + 1);
 		_memcopy(array[i], tmp->key, _strlen(tmp->key));

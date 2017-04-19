@@ -20,7 +20,7 @@ void free_env_list(env_t *head)
 {
 	if (head == NULL)
 		return;
-	if(head->next)
+	if (head->next)
 		free_env_list(head->next);
 	free(head->key);
 	free(head);
@@ -32,9 +32,10 @@ void free_env_list(env_t *head)
 void free_env_array(char **array)
 {
 	int i = 0;
+
 	if (array == NULL)
 		return;
-	while(array[i] != NULL)
+	while (array[i] != NULL)
 	{
 		free(array[i]);
 		i++;
@@ -54,10 +55,7 @@ void free_path_array(char **array)
 }
 /**
  * free_mem - frees all allocated memmory before shell's exit
- * @buffer: the user's input
- * @env_var_list: the environmental linked list
- * @environmental_list: environmental variable double ptr array
- * @path_array: double ptr array of the path
+ * @vars: takes in the variable to free
  */
 void free_mem(all_variables_t *vars)
 {
