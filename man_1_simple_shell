@@ -3,13 +3,13 @@
 .B BombShell, hsh - the standard command interpreter
 .SH SYNOPSIS
 .IP
-.I hsh [-acefhikmnprstuvx] [arg] ...
+.I hsh [command] [arg] ...
 
 .SH DESCRIPTION
 BombShell (hsh) is a command language interpretor for the system that executes commands read from the standard input or from a file.
 
 .SH OVERVIEW
-
+Bombshell (hsh) is a command that reads lines from either a file or the terminal, interprets them, and genreally executes other commands. It is a program that is running when the user compiles BombShell (simple_shell). It runs the excutable file, ./hsh.  The simple_shell implements a language that has flow control constructs, a macro facility that provides a variety of features in addition to data storage, along with built in history and line editing capabilities. It incorporates many features to aid interactive use and has the advantage that the interpretative language is common to both interactive and non-interactive use (shell scripts). That is, commands can be typed directly to the running shell or can be put into a file and the file can be executed directly by the shell. 
 .SH INVOCATION
 
 .SH ARGUMENT LIST PROCESSING
