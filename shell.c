@@ -28,7 +28,7 @@ int main(void)
 	if ((sb.st_mode & S_IFMT) == S_IFIFO)
 		pipe = 1;
 	if (pipe == 0)
-		_write("BombShell-$ ");
+		_write("$ ");
 	while ((read = getline(&vars.buf, &vars.len, stdin)) != -1)
 	{
 		i = 0;
@@ -37,7 +37,7 @@ int main(void)
 			break;
 		if (_strcmp(vars.buf, "\n") == 0 || _strcmp(vars.buf, "\t") == 0)
 		{
-			_write("BombShell-$ ");
+			_write("$ ");
 			continue;
 		}
 		vars.n_tok = input_word_counter(vars.buf);
@@ -57,7 +57,7 @@ int main(void)
 			free(vars.in_ar);
 		}
 		if (pipe == 0)
-			_write("BombShell-$ ");
+			_write("$ ");
 	}
 	free_mem(&vars);
 	exit(EXIT_SUCCESS);
