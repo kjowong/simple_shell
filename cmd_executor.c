@@ -34,7 +34,7 @@ int full_path_executor(char **cmd, char **env_array)
 			}
 		}
 	}
-	if (cmd[0][i] == '\0' && cmd[0][0] == '/')
+	if (cmd[0][0] == '/' && cmd[0][i] == '\0')
 	{
 		_write(cmd[0]);
 		_write(": No such file or directory\n");
