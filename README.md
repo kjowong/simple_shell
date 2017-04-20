@@ -32,7 +32,7 @@ Once cloned over, the repository will contain the following files:
 | write.c     | function that writes to standard output |
 
 ## Description of File Structure
-1. [build_all_variables.c](build_all_variable.c) - Builds all the variables needed for each function: 
+1. [build_all_variables.c](build_all_variables.c) - Builds all the variables needed for each function: 
   * ``*build_all_variables()`` - builds all the variables needed for each function such as when building a linked list
 2. [builtin_funcs.c](builtin_funcs.c) - Includes two builtin functions:
   * ``print_env()`` - Prints the user's current environment
