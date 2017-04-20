@@ -124,5 +124,5 @@ int full_path_executor(char **in_ar, char **env_ar);
 int path_cmd_executor(char **path_ar, char **in_ar, char **env_ar);
 
 /* Signal Functions */
-void signal_handler();
+void signal_handler(void);
 #endif

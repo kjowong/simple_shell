@@ -53,7 +53,7 @@ int main(void)
  * signal_handler - handles ^C input
  * Return: void
  */
-void signal_handler()
+void signal_handler(void)
 {
 	_write("\n$ ");
 }
