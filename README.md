@@ -19,7 +19,7 @@ Once cloned over, the repository will contain the following files:
 | envlist_to_array.c     | function that converts the environmental linked list to an double pointer array|
 | env_funcs.c | functions to handle the environment |
 | free_mem.c | functions that free memory allocation |
-| get_builtin_func.c     | function that get the b|
+| get_builtin_func.c     | function that get the builtins through a function pointer|
 | input_funcs.c | contains functions to handler user input |
 | input_list_to_array.c | converts the input linked list to a double pointer |
 | input_parserator.c     | function to parse the user's input |
