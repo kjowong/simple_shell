@@ -24,6 +24,8 @@ BombShell is designed to interact in Linux or a Unix like system since the shell
 This secion has information on the included builtin commands incorporated into BombShell
 .IP env
 writes the current environment to standard output
+.IP setenv
+sets a new environmental variable or modifies an existing one to the environment
 .IP exit
 terminates BombShell's processes
 .SH EXAMPLE OF EXECUTABLE
