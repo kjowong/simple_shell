@@ -20,7 +20,7 @@ int print_env(all_variables_t *vars)
 /**
  * _setenv - sets new environmental variable
  * @vars: pointer to a sturct that holds all the needed variables
- * Return: 0 on success
+ * Return: 0 on success, -1 on failure
  **/
 int _setenv(all_variables_t *vars)
 {
@@ -36,7 +36,6 @@ int _setenv(all_variables_t *vars)
 			traverser->value = strtok(NULL, "\n");
 			free_env_array(vars->env_ar);
 			vars->env_ar = conv_list_to_array(vars->env_hd, vars->n_env_nod + 1);
-			vars->n_env_nod = vars->n_env_nod + 1;
 			j = 1;
 			break;
 		}
