@@ -23,7 +23,7 @@ Once cloned over, the repository will contain the following files:
 | input_funcs.c | contains functions to handler user input |
 | input_list_to_array.c | converts the input linked list to a double pointer |
 | input_parserator.c     | function to parse the user's input |
-| input_to_array.c     | function |
+| input_to_array.c     | function that converts the string input into a double pointer array |
 | input_word_counter.c     | counts the words in the user's input |
 | memory_funcs.c     | contains functions to allocate memory |
 | path_parserator.c     | parses the path by `:` into directories |
