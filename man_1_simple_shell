@@ -27,18 +27,41 @@ This secion has information on the included builtin commands with BombShell
 writes the shell's environment to standard output
 .IP exit
 exits BombShell
-.SH EXAMPLES
+.SH EXAMPLES OF EXECUTABLE
 Here is an example use of the "ls" command in BombShell:
-.if t .sp 0.5
-.if n .sp 1
-.RS
-PD 0
-TP
-.B (\fl$ ls -l\fp)
+.IP
+.br
+.\&
+.RS 1.5i
+\&$ ls -l
+.br
 total 3
--rwxrw-r-x 1 vagrant vagrant 5345 Apr 4 14:59 hello.c
--rwxrwxrwx 1 vagrant vagrant 5343 Mar 1 22:05 julien.c
--rwxrw-r-x 1 vagrant vagrant 5542 Feb 2 09:14 holberton.c
+.br
+\&-rwxrw-r-x 1 vagrant vagrant 5345 Apr 4 14:59 hello.c
+.br
+\&-rwxrwxrwx 1 vagrant vagrant 5343 Mar 1 22:05 julien.c
+.br
+\&-rwxrw-r-x 1 vagrant vagrant 5542 Feb 2 09:14 holberton.c
+.SH EXAMPLE OF BUILTIN
+.IP
+Here is an example of the builtin function, "env":
+.IP
+.br
+.\&
+.RS 1.5i
+\$ &env
+.br
+
+.br
+ 40 \&-rwxrw-r-x 1 vagrant vagrant 5345 Apr 4 14:59 hello.c
+ 41 .br
+ 42 \&-rwxrwxrwx 1 vagrant vagrant 5343 Mar 1 22:05 julien.c
+ 43 .br
+ 44 \&-rwxrw-r-x 1 vagrant vagrant 5542 Feb 2 09:14 holberton.c
+ 45 .IP
+
+
+
 
 .SH "SEE ALSO"
 .BR sh (1),
@@ -55,4 +78,3 @@ No known bugs.
 They are currently in development.
 .SH AUTHORS
 Kimberly Wong, Christian Agha
-
