@@ -73,10 +73,18 @@ Once cloned over, the repository will contain the following files:
 15. [print_funcs.c](print_funcs.c) - Includes functions to print the environmental list
   * ``print_env_list()`` - function that prints the environmental list
   * ``print_input_list()`` -  function that prints the input list
-14. [AUTHORS](AUTHORS) - List of contributors.
-15. [LINKS.md](LINKS.md) - List of links used for learning how to make this project.
-16. [man_1_simple_shell](man_1_simple_shell) - Basic manual page.
-17. [bowie](bowie.txt) - ASCII art of David Bowie.
+16. [shell.c](shell.c) - File that includes the main shell function
+17. [shell.h](shell.h) - Header file that includes prototypes and structs
+18. [string_helper_funcs.c](string_helper_funcs.c) - Includes functions help the basic functionality for the shell
+  * ``_strcmp()`` - function that compares the strings
+  * ``_strncmp()`` -  function that compares the strings
+  * ``_strcmp_env()`` -  function that compares the strings for the environmental variables
+  * ``*_strdup()`` -  function that duplicates the string
+  * ``_strlen()`` -  function that finds the length of the string
+19. [write_func.c](write_func.c) - Includes a function that writes to standard output
+  * ``_write()`` - function that writes to standard output
+20. [AUTHORS](AUTHORS) - List of contributors.
+16. [man_1_simple_shell](man_1_simple_shell) - Manual page for the shell.
 
 ## How to Use
 First step is to clone the repository into your directory
