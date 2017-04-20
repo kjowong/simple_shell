@@ -1,81 +1,40 @@
 .TH BombShell 1 "5 April 2017" "0.1" "BombShell man page"
 .SH NAME
-.B BombShell, hsh - the standard command interpreter
+.B BombShell, hsh - a command language interpreter
 .SH SYNOPSIS
 .IP
 .I hsh [command] [arg] ...
 
 .SH DESCRIPTION
-BombShell (hsh) is a command language interpretor for the system that executes commands read from the standard input or from a file.
+BombShell (hsh) replicates the command language interpreter (sh) and executes commands read from the standard input or from a file.\ 
+
 
 .SH OVERVIEW
 Bombshell (hsh) is a command that reads lines from either a file or the terminal, interprets them, and genreally executes other commands.\ 
 It is a program that is running when the user compiles BombShell (simple_shell) and runs the excutable file, ./hsh.\
-The simple_shell implements a language that has flow control constructs, a macro facility that provides a variety of features in addition to data storage, along with built in history and line editing capabilities.\
-It incorporates many features to aid interactive use and has the advantage that the interpretative language is common to both interactive and non-interactive use (shell scripts). \
+The simple_shell implements a language that has flow control constructs. It incorporates many features to aid interactive use and has the advantage \
+that the interpretative language is common to both interactive and non-interactive use (shell scripts). \
 That is, commands can be typed directly to the running shell or can be put into a file and the file can be executed directly by the shell. 
 
 .SH INVOCATION
-If no args are present and if the standard input of the shell is connected to a terminal (or if the -i flag is set), and the -c option is not
-     present, the shell is considered an interactive shell.  An interactive shell generally prompts before each command and handles programming
-     and command errors differently (as described below).  When first starting, the shell inspects argument 0, and if it begins with a dash ‘-’,
-     the shell is also considered a login shell.  This is normally done automatically by the system when the user first logs in.  A login shell
-     first reads commands from the files /etc/profile and .profile if they exist.  If the environment variable ENV is set on entry to an interac‐
-     tive shell, or is set in the .profile of a login shell, the shell next reads commands from the file named in ENV.  Therefore, a user should
-     place commands that are to be executed only at login time in the .profile file, and commands that are executed for every interactive shell
-     inside the ENV file.  To set the ENV variable to some file, place the following line in your .profile of your home directory
-     
-.SH SIMPLE COMMMANDS
-.IP
+To start up BombShell, you must first compile with gcc -Wall -Werror -Wextra -pedantic *.c -o hsh and run the executable ./hsh.
+If no arguments are present and if the standard input of the shell is connected to a terminal, the shell is considered an interactive shell.  
+BombShell is designed to interact in Linux or a Unix like system since the shell uses the Linux system calls to retrieve and execute executable programs found in the $PATH.\
+Our version of the shell incorporates the builtin commands "exit" and "env".
 .SH BUILT-IN COMMANDS
-.RS
 This secion has information on the included builtin commands with BombShell
-.Bl -tag -width "PAGEIN" -compact -offset indent
-.It
-.B env
-- writes the environment to standard output
-.IT
-.B setenv
-- sets or changes an environmental variable. example: 'setenv USER=Kimberly
-.IT
-.B unsetenv
-- removes environmental variable. example: 'unsetenv USER'
-.IT
-.B history
-- writes history to stdout
-.IT
-.B exit
-- exits arsine
-.IT
-.B cd
-- changes working directory
-.IT
-.B help
-- used with another command prints help message. example: 'help env'
-.IP s
-The argument passed for specifier "%s" is a literal string in consta char *, which will be a pointer to an array of character type that points to a string. Characters from the array are written up to (but not including ) the terminating null bye ('/0').
-does not take any options. However, you can supply studentname.
-.IP c
-The argument passed for specifier "%c" is of type int. which is then converted to an unsigned char, which is then written. 
-.IP %
-The argument passed is not converted and will simply be written as "%". To write out "%", format must be "%%". 
-.IP d,i
-The argument passed for specifiers "%d" and "%i" is an int argument converted into signed decimal notation. In _printf, the specifiers are handled the same way. The precision functionality, the number of digits that appears in beginning, is still in development and will be added at an later time.
-.IP r
-The argument passed for specifier "%r" has the same conversion functionality as "%s", but writes the output into the buffer in reverse order.
-.IP R
-The argument passed for specifier "%R" converts the argument from a string literal into rot13.
-.IP o,u,x,X
-The argument passed for specifiers "%o", "%u", "%x", and "%X" are handled as follows:
-.IP
-"%o" takes in an unsigned integer and converts the argument into an unsigned octal.
-.IP
-"%u" takes in an unsigned integer and converts the argument into an unsigned decimal
-.IP
-"%x","%X" takes in an unsiged integer and converts the argument into an unsigned hexadecimal. For "x", letters "abcdef" are used while for "X", letters "ABCDEF" are used.
-.IP p
-The void * pointer argument is printed in hexadecimal
+.IP env
+writes the shell's environment to standard output
+.IP exit
+exits BombShell
 .SH EXAMPLES
+Here is an example use of the "ls" command in BombShell:
+$ ls -l
+total 3
+-rwxrw-r-x 1 vagrant vagrant 5345 Apr 4 14:59 hello.c
+-rwxrwxrwx 1 vagrant vagrant 5343 Mar 1 22:05 julien.c
+-rwxrw-r-x 1 vagrant vagrant 5542 Feb 2 09:14 holberton.c
+
 .SH "SEE ALSO"
 .BR sh (1),
 .BR bash (1),
