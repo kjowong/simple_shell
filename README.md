@@ -16,6 +16,7 @@ Once cloned over, the repository will contain the following files:
 | build_all_variables.c     | struct function that builds the variables             |
 | builtin_funcs.c | functions for builtin commands |
 | cmd_executor.c     | function that executes the commands from user input|
+| envlist_to_array.c     | function that converts the environmental linked list to an double pointer array|
 | env_funcs.c | functions to handle the environment |
 | free_mem.c | functions that free memory allocation |
 | get_builtin_func.c     | function that get the b|
@@ -24,62 +25,36 @@ Once cloned over, the repository will contain the following files:
 | input_parserator.c     | function to parse the user's input |
 | input_to_array.c     | function |
 | input_word_counter.c     | counts the words in the user's input |
-| list_to_2d_array.c     | converts env linked list into a double pointer array |
 | memory_funcs.c     | contains functions to allocate memory |
 | path_parserator.c     | parses the path by `:` into directories |
 | print_funcs.c     | contains functions to print the list |
+| string_helper_funcs.c     | contains functions to find the string length, duplicate the string, etc |
+| write.c     | function that writes to standard output |
 
 ## How to Use
-There are two ways to use the _printf function in your code.
 First step is to clone the repository into your directory
 ```
-$ git clone https://github.com/kjowong/printf.git
+$ git clone https://github.com/ChristianAgha/simple_shell.git
 ```
-Once that is done, you can create a static library or use the -I in gcc
+Compile all the `.c` files in simple_shell
+```
+gcc -Wall -Wextra -Werror -pedantic -g *.c -o hsh
+```
+The `-g` flag is used to trace Valgrin errors, such as memory leaks and invalid reads
 
-### Compile with a static library for _printf
-Change your directory into the _printf directory in order to create your static library
+## Example of Use
+After compiling, run the executable `./hsh`
 ```
-$ cd printf
-```
-Compile all the `.c` files in _printf
-```
-gcc -Wall -Werror -Wextra -pedantic -c *.c
-```
-All your `.c` files should also have a corresponding `.o` file. Run the following to create your static library:
-```
-ar -rc lib<LIBRARY-NAME>.a *.o
-```
-To run your static library with your own `YOUR-FILE.c` file, use the following command:
-```
-gcc <YOUR-FILE>.c -L. -lib<LIBRARY-NAME> -o <OUT-NAME>
-```
-### Compile without a static library for _printf
-Make sure the _printf directory is in the same directory as your `YOUR-FILE.c` file and then run the following command:
-```
-gcc -Wall -Werror -Wextra -pedantic -I $PWD/printf printf/*.c <YOUR-FILE>.c
-```
-The `-I` flag allows you to include the directory of the header file `holberton.h`. `$PWD/printf` takes the absolute path of the _print directory while `printf/*.c` compiles all your `.c` files in _printf
-
-## Use in code 
-### How to use _printf in your code
-Please see the following example when _printf is implemented in your code:
-
-```
-#include <holberton.h>
-
-int main(void)
-{
-  _printf("Let's try to print a %s sentence.\n", "simple");
-  return (0):
- }
-```
-This is an an example output:
-```
-$ Let's try to print a simple sentence.
+$ ./hsh
+$ # You are now in our version of the shell
+$ ls -l
+total 3
+-rwxrw-r-x 1 vagrant vagrant 5345 Apr 4 14:59 hello.c
+-rwxrwxrwx 1 vagrant vagrant 5343 Mar 1 22:05 julien.c
+-rwxrw-r-x 1 vagrant vagrant 5542 Feb 2 09:14 holberton.c
 ```
 ## Notes
-This _printf function currently does not support special flags [+ , - , `, \0 , #], field, width or precision.
+Other builtins such as aliases, history and or command separators are not supported as is currently in development.
 
 ## Known Bugs
 There are no known bugs at the time.
