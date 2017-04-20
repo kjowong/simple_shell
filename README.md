@@ -31,6 +31,51 @@ Once cloned over, the repository will contain the following files:
 | string_helper_funcs.c     | contains functions to find the string length, duplicate the string, etc |
 | write.c     | function that writes to standard output |
 
+## Description of File Structure
+1. [build_all_variables.c](build_all_variable.c) - Builds all the variables needed for each function: 
+  * ``*build_all_variables()`` - builds all the variables needed for each function such as when building a linked list
+2. [builtin_funcs.c](builtin_funcs.c) - Includes two builtin functions:
+  * ``print_env()`` - Prints the user's current environment
+  * ``_setenv()`` - Allows the user to create or modify an environmental variable. Version is not stable yet.
+3. [cmd_executor.c](cmd_executor.c)
+  * ``full_path_executor()`` - executes the binary executable if the user inputs the full path. For example: /bin/ls
+  * ``path_cmd_executor()`` - executes the binary executable if the user inputs just the command. For example: ls
+4. [env_funcs.c](env_funcs.c) - Includes all functions that deal with the environment:
+  * ``add_env_node()`` - creates a linked list from the user's current environment
+  * ``create_env_list()`` - creates a linked list from the ``environ`` variables.
+5. [envlist_to_array.c](envlist_to_array.c) - Includes function to convert the environmental variable linked list into a double pointer array
+  * ``conv_list_to_array()`` - Converts the environmental linked list into a double pointer array
+6. [free_mem.c](free_mem.c) - Includes functions to free memory
+  * ``free_input_list()`` - Frees the input linked list (Currently not in use)
+  * ``free_env_list()`` - Frees the environmental variable linked list
+  * ``free_env_array()`` - Frees the double pointer environmental variable array
+  * ``free_path_array()`` - Frees the double pointer path array
+  * ``free_mem()`` - Function that calls all the free functions
+7. [get_builtin_func.c](get_builtin_func.c) - Includes a function to get the builtin functions
+  * ``*get_builtin_func()`` - Function pointer to pointer to the builtin function the user inputs
+8. [input_funcs.c](input_funcs.c) - Include a function that handle the user's input
+  * ``*add_node_end`` - Adds the user's input into a linked list (currently not in use).
+9. [input_list_to_array.c](input_list_to_array.c) - Includes a function to convert the input linked list into a double pointer array:
+  * ``conv_inputlist_to_array()`` - function to convert the input linked list into a double pointer array (currently not in use). 
+10. [input_parserator.c](input_parserator.c) - Includes a function to parse the user's input
+* ``*input_parserator()`` - a function to parse the user's input
+11. [input_to_array.c](input_to_array.c) - Includes a function that takes in the input and converts to a double pointer array:
+  * ``**input_to_array()`` - takes in the user input as a string and converts to a double pointer array
+12. [input_word_counter.c](input_word_counter.c) - Second file that includes all utility functions that deal with string operations:
+  * ``word_count()`` - Counts words in a string as delimited
+  * ``_strlen_const()`` - same thing as strlen, but accepts const strings.
+  * ``simple_print()`` - Writes to stdout, accepts a const string.
+  * ``_isdigit()`` - Checks to see if a char is a digit. Recreation of ``isdigit()`` from ``<ctype.h>``
+13. [strtok.c](strtok.c) - Includes the strtok function, as well as helper functions that do not need to be referenced elsewhere
+  * ``_strchr()`` - Checks for a char in a string. Returns the string on success, and NULL on failure. Recreation of ``strchr()`` from ``<string.h>``
+  * ``_strspn()`` - Gets the length of a substring. Recreation of ``strspn()`` from ``<string.h>`` with a different return type.
+  * ``_strpbrk() - search a string for any set of bytes. Recreation of ``strpbrk()`` from ``<string.h>``
+  * ``_strtok_r()`` - Split a string into tokens, and alters the string in the process. Recreation of ``strtok`` from ``<string.h>``
+14. [AUTHORS](AUTHORS) - List of contributors.
+15. [LINKS.md](LINKS.md) - List of links used for learning how to make this project.
+16. [man_1_simple_shell](man_1_simple_shell) - Basic manual page.
+17. [bowie](bowie.txt) - ASCII art of David Bowie.
+
 ## How to Use
 First step is to clone the repository into your directory
 ```
@@ -65,3 +110,4 @@ There are no known bugs at the time.
 *Kimberly Wong* - [Github](https://github.com/kjowong) || [Twitter](https://twitter.com/kjowong) || [email](kimberly.wong@holbertonschool.com)
 
 #### Feedback and contributors welcomed. Reach out to either authors.
+
