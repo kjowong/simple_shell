@@ -33,10 +33,10 @@ env_t *add_env_node(env_t **head, char *env_var)
 }
 /**
   * create_env_list - creates the linked list from environ
-  * @all_var_s: takes in necessary variables
+  * @vars: takes in necessary variables
   * Return: returns the linked list from environ variables
   */
-int create_env_list(all_variables_t *all_var_s)
+int create_env_list(all_variables_t *vars)
 {
 	unsigned int i;
 
@@ -44,7 +44,7 @@ int create_env_list(all_variables_t *all_var_s)
 
 	while (environ[i] != NULL)
 	{
-		add_env_node(&all_var_s->env_hd, environ[i]);
+		add_env_node(&vars->env_hd, environ[i]);
 		i++;
 	}
 	return (i);
