@@ -29,6 +29,7 @@ Once cloned over, the repository will contain the following files:
 | path_parserator.c     | parses the path by `:` into directories |
 | print_funcs.c     | contains functions to print the list |
 | string_helper_funcs.c     | contains functions to find the string length, duplicate the string, etc |
+| string_helper_funcs2.c     | contains a function that concatenates two strings |
 | write.c     | function that writes to standard output |
 
 ## Description of File Structure
