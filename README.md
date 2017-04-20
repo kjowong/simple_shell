@@ -32,7 +32,7 @@ Once cloned over, the repository will contain the following files:
 | write.c     | function that writes to standard output |
 
 ## Description of File Structure
-1. [build_all_variables.c](build_all_variable.c) - Builds all the variables needed for each function:
+1. [build_all_variables.c](build_all_variable.c) - Builds all the variables needed for each function: 
   * ``*build_all_variables()`` - builds all the variables needed for each function such as when building a linked list
 2. [builtin_funcs.c](builtin_funcs.c) - Includes two builtin functions:
   * ``print_env()`` - Prints the user's current environment
@@ -56,21 +56,23 @@ Once cloned over, the repository will contain the following files:
 8. [input_funcs.c](input_funcs.c) - Include a function that handle the user's input
   * ``*add_node_end`` - Adds the user's input into a linked list (currently not in use).
 9. [input_list_to_array.c](input_list_to_array.c) - Includes a function to convert the input linked list into a double pointer array:
-  * ``conv_inputlist_to_array()`` - function to convert the input linked list into a double pointer array (currently not in use).
+  * ``conv_inputlist_to_array()`` - function to convert the input linked list into a double pointer array (currently not in use). 
 10. [input_parserator.c](input_parserator.c) - Includes a function to parse the user's input
 * ``*input_parserator()`` - a function to parse the user's input
 11. [input_to_array.c](input_to_array.c) - Includes a function that takes in the input and converts to a double pointer array:
   * ``**input_to_array()`` - takes in the user input as a string and converts to a double pointer array
-12. [input_word_counter.c](input_word_counter.c) - Second file that includes all utility functions that deal with string operations:
-  * ``word_count()`` - Counts words in a string as delimited
-  * ``_strlen_const()`` - same thing as strlen, but accepts const strings.
-  * ``simple_print()`` - Writes to stdout, accepts a const string.
-  * ``_isdigit()`` - Checks to see if a char is a digit. Recreation of ``isdigit()`` from ``<ctype.h>``
-13. [strtok.c](strtok.c) - Includes the strtok function, as well as helper functions that do not need to be referenced elsewhere
-  * ``_strchr()`` - Checks for a char in a string. Returns the string on success, and NULL on failure. Recreation of ``strchr()`` from ``<string.h>``
-  * ``_strspn()`` - Gets the length of a substring. Recreation of ``strspn()`` from ``<string.h>`` with a different return type.
-  * ``_strpbrk() - search a string for any set of bytes. Recreation of ``strpbrk()`` from ``<string.h>``
-  * ``_strtok_r()`` - Split a string into tokens, and alters the string in the process. Recreation of ``strtok`` from ``<string.h>``
+12. [input_word_counter.c](input_word_counter.c) - Counts the tokens in the user input:
+  * ``input_token_count()`` - counts the amount of tokens in the input 
+13. [memory_funcs.c](memory_funcs.c) - Includes functions for memory
+  * ``*_grand_malloc()`` - allocates memory, filles with null bytes '\0'
+  * ``*_memcopy()`` -  copies the memory area
+  * ``*_memset() - function that filles the memory with a constant byte
+14. [path_parserator.c](path_parserator.c) - Includes functions to parse the path
+  * ``path_folder_counter()`` - counts the amount of folders in the path
+  * ``path_parserator()`` -  converts the environmental linked list into a double pointer array
+15. [print_funcs.c](print_funcs.c) - Includes functions to print the environmental list
+  * ``print_env_list()`` - function that prints the environmental list
+  * ``print_input_list()`` -  function that prints the input list
 14. [AUTHORS](AUTHORS) - List of contributors.
 15. [LINKS.md](LINKS.md) - List of links used for learning how to make this project.
 16. [man_1_simple_shell](man_1_simple_shell) - Basic manual page.
