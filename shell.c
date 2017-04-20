@@ -14,7 +14,8 @@ int main(void)
 	vars.n_env_nod = create_env_list(&vars);
 	vars.env_ar = conv_list_to_array(vars.env_hd, vars.n_env_nod);
 	vars.pth_ar = path_parserator(vars.env_hd);
-	signal(SIGINT, SIG_IGN);
+
+	signal(SIGINT, signal_handler);
 	if (fstat(STDIN_FILENO, &sb) == -1)
 	{ perror("Fstat Failed"); exit(EXIT_FAILURE); }
 	if ((sb.st_mode & S_IFMT) == S_IFIFO)
@@ -46,4 +47,13 @@ int main(void)
 	}
 	free_mem(&vars);
 	exit(EXIT_SUCCESS);
+}
+
+/**
+ * signal_handler - handles ^C input
+ * Return: void
+ */
+void signal_handler()
+{
+	_write("\n$ ");
 }

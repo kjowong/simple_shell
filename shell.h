@@ -122,4 +122,7 @@ int (*get_builtin_func(char *cmd))();
 unsigned int path_folder_counter(char *paths);
 int full_path_executor(char **in_ar, char **env_ar);
 int path_cmd_executor(char **path_ar, char **in_ar, char **env_ar);
+
+/* Signal Functions */
+void signal_handler();
 #endif
