@@ -9,8 +9,8 @@ int (*get_builtin_func(char *cmd))()
 	int i;
 	builtin format[] = {
 		{"env", print_env},
-/**		{"setenv", _setenv},
- *		{"cd", change_dir},
+		{"setenv", _setenv},
+/**		{"cd", change_dir},
  *		{"exit", diffuse},
  *		{"unsetenv", _unsetenv},
  *		{"help", _help},

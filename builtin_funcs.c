@@ -21,14 +21,14 @@ int print_env(all_variables_t *vars)
  * _setenv - sets new environmental variable
  * @num_of_env_nodes: takes in the number of nodes in envlist
  * @enviro
-
+ **/
 int _setenv(all_variables_t *vars)
 {
-	add_env_node(vars->env_hd, var->in_ar[1]);
+	printf("vars->buf: %s\n", vars->buf);
+/*	add_env_node(vars->env_hd, var->in_ar[1]);
 	free_env_array(vars->env_ar);
 
 	conv_list_to_array(*vars->env_hd, vars->n_tok + 1);
-
+*/
 	return(0);
 }
-**/
