@@ -45,10 +45,8 @@ int main(void)
 		if (pipe == 0)
 			_write("$ ");
 	}
-	free_mem(&vars);
-	exit(EXIT_SUCCESS);
+	free_mem(&vars); exit(EXIT_SUCCESS);
 }
-
 /**
  * signal_handler - handles ^C input
  * @sig: signal value
