@@ -3,7 +3,7 @@
  * input_to_array - converts inout to a double pointer array
  * @buffer: string input
  * @tokens: number of tokens in string
- * Return - pointer to new input array
+ * Return: pointer to new input array
  **/
 
 char **input_to_array(char *buffer, int tokens)

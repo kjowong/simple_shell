@@ -32,7 +32,7 @@ Once cloned over, the repository will contain the following files:
 | write.c     | function that writes to standard output |
 
 ## Description of File Structure
-1. [build_all_variables.c](build_all_variable.c) - Builds all the variables needed for each function: 
+1. [build_all_variables.c](build_all_variable.c) - Builds all the variables needed for each function:
   * ``*build_all_variables()`` - builds all the variables needed for each function such as when building a linked list
 2. [builtin_funcs.c](builtin_funcs.c) - Includes two builtin functions:
   * ``print_env()`` - Prints the user's current environment
@@ -56,7 +56,7 @@ Once cloned over, the repository will contain the following files:
 8. [input_funcs.c](input_funcs.c) - Include a function that handle the user's input
   * ``*add_node_end`` - Adds the user's input into a linked list (currently not in use).
 9. [input_list_to_array.c](input_list_to_array.c) - Includes a function to convert the input linked list into a double pointer array:
-  * ``conv_inputlist_to_array()`` - function to convert the input linked list into a double pointer array (currently not in use). 
+  * ``conv_inputlist_to_array()`` - function to convert the input linked list into a double pointer array (currently not in use).
 10. [input_parserator.c](input_parserator.c) - Includes a function to parse the user's input
 * ``*input_parserator()`` - a function to parse the user's input
 11. [input_to_array.c](input_to_array.c) - Includes a function that takes in the input and converts to a double pointer array:

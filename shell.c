@@ -33,7 +33,7 @@ int main(void)
 		{	vars.in_ar = input_to_array(vars.buf, vars.n_tok);
 			vars.builtin_func = get_builtin_func(vars.in_ar[0]);
 			if (vars.builtin_func != NULL)
-			{	vars.builtin_func(vars.n_env_nod, vars.env_ar, vars.in_ar, vars.env_hd);
+			{	vars.builtin_func(&vars);
 				i = 1;
 			}
 			if (i == 0)
@@ -51,6 +51,7 @@ int main(void)
 
 /**
  * signal_handler - handles ^C input
+ * @sig: signal value
  * Return: void
  */
 void signal_handler(int sig)

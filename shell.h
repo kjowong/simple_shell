@@ -90,8 +90,8 @@ const char *_getenv(const char *name);
 env_t *add_env_node(env_t **env_hd, char *env_var);
 int create_env_list(all_variables_t *vars);
 char **conv_list_to_array(env_t *env_hd, int n);
-int print_env(size_t n_env_nodes, char **env_ar, char **in_ar, env_t *env_hd);
-int _setenv(size_t n_env_nodes, char **env_ar, char **in_ar, env_t **env_hd);
+int print_env(all_variables_t *vars);
+int _setenv(all_variables_t *vars);
 char **path_parserator(env_t *env_hd);
 
 /* Free Functions */

@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
-  * path_executor - function to execute the commands given with their path
+  * full_path_executor - function to execute the commands given with their path
   * @cmd: double pointer to the commands inputted
   * @env_array: double pointer to the environment array
   * Return: status on success 2 on failure
@@ -43,7 +43,7 @@ int full_path_executor(char **cmd, char **env_array)
 	return (2);
 }
 /**
- * cmd_executor - function to execute the commands given with their path
+ * path_cmd_executor - function to execute the commands given with their path
  * @path_folders: array with paths as entries
  * @cmd: double pointer to the commands inputted
  * @env_array: double pointer to the environment array
