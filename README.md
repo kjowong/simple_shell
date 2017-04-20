@@ -36,7 +36,7 @@ Once cloned over, the repository will contain the following files:
   * ``*build_all_variables()`` - builds all the variables needed for each function such as when building a linked list
 2. [builtin_funcs.c](builtin_funcs.c) - Includes two builtin functions:
   * ``print_env()`` - Prints the user's current environment
-  * ``_setenv()`` - Allows the user to create or modify an environmental variable. Version is not stable yet.
+  * ``_setenv()`` - Allows the user to create or modify an environmental variable.
 3. [cmd_executor.c](cmd_executor.c) - Includes functions to execute the binary executable programs:
   * ``full_path_executor()`` - executes the binary executable if the user inputs the full path. For example: /bin/ls
   * ``path_cmd_executor()`` - executes the binary executable if the user inputs just the command. For example: ls
