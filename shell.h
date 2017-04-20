@@ -83,6 +83,7 @@ int _strncmp(char *str1, char *str2, int len);
 int _strcmp_env(const char *str1, const char *str2);
 char *_strdup(const char *str);
 int _write(char *str);
+char *_strncat_env(char *dest, char *src, int n);
 
 /* Environment Functions */
 size_t print_env_list(const env_t *h);
