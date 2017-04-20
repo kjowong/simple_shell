@@ -37,47 +37,49 @@ Once cloned over, the repository will contain the following files:
 2. [builtin_funcs.c](builtin_funcs.c) - Includes two builtin functions:
   * ``print_env()`` - Prints the user's current environment
   * ``_setenv()`` - Allows the user to create or modify an environmental variable. Version is not stable yet.
-3. [cmd_executor.c](cmd_executor.c)
+3. [cmd_executor.c](cmd_executor.c) - Includes functions to execute the binary executable programs:
   * ``full_path_executor()`` - executes the binary executable if the user inputs the full path. For example: /bin/ls
   * ``path_cmd_executor()`` - executes the binary executable if the user inputs just the command. For example: ls
 4. [env_funcs.c](env_funcs.c) - Includes all functions that deal with the environment:
   * ``add_env_node()`` - creates a linked list from the user's current environment
   * ``create_env_list()`` - creates a linked list from the ``environ`` variables.
-5. [envlist_to_array.c](envlist_to_array.c) - Includes function to convert the environmental variable linked list into a double pointer array
+5. [envlist_to_array.c](envlist_to_array.c) - Includes function to convert the environmental variable linked list into a double pointer array:
   * ``conv_list_to_array()`` - Converts the environmental linked list into a double pointer array
-6. [free_mem.c](free_mem.c) - Includes functions to free memory
+6. [free_mem.c](free_mem.c) - Includes functions to free memory:
   * ``free_input_list()`` - Frees the input linked list (Currently not in use)
   * ``free_env_list()`` - Frees the environmental variable linked list
   * ``free_env_array()`` - Frees the double pointer environmental variable array
   * ``free_path_array()`` - Frees the double pointer path array
   * ``free_mem()`` - Function that calls all the free functions
-7. [get_builtin_func.c](get_builtin_func.c) - Includes a function to get the builtin functions
-  * ``*get_builtin_func()`` - Function pointer to pointer to the builtin function the user inputs
-8. [input_funcs.c](input_funcs.c) - Include a function that handle the user's input
+7. [get_builtin_func.c](get_builtin_func.c) - Includes a function to get the builtin functions:
+  * ``*get_builtin_func()`` - Function pointer that points to the builtin function the user inputs
+8. [input_funcs.c](input_funcs.c) - Include a function that handle the user's input:
   * ``*add_node_end`` - Adds the user's input into a linked list (currently not in use).
 9. [input_list_to_array.c](input_list_to_array.c) - Includes a function to convert the input linked list into a double pointer array:
   * ``conv_inputlist_to_array()`` - function to convert the input linked list into a double pointer array (currently not in use). 
-10. [input_parserator.c](input_parserator.c) - Includes a function to parse the user's input
+10. [input_parserator.c](input_parserator.c) - Includes a function to parse the user's input:
 * ``*input_parserator()`` - a function to parse the user's input
 11. [input_to_array.c](input_to_array.c) - Includes a function that takes in the input and converts to a double pointer array:
   * ``**input_to_array()`` - takes in the user input as a string and converts to a double pointer array
 12. [input_word_counter.c](input_word_counter.c) - Counts the tokens in the user input:
   * ``input_token_count()`` - counts the amount of tokens in the input 
-13. [memory_funcs.c](memory_funcs.c) - Includes functions for memory
-  * ``*_grand_malloc()`` - allocates memory, filles with null bytes '\0'
+13. [memory_funcs.c](memory_funcs.c) - Includes functions for memory:
+  * ``*_grand_malloc()`` - allocates memory, filling area with null bytes '\0'
   * ``*_memcopy()`` -  copies the memory area
-  * ``*_memset() - function that filles the memory with a constant byte
-14. [path_parserator.c](path_parserator.c) - Includes functions to parse the path
+  * ``*_memset() - function that fills the memory with a constant byte
+14. [path_parserator.c](path_parserator.c) - Includes functions to parse the path:
   * ``path_folder_counter()`` - counts the amount of folders in the path
   * ``path_parserator()`` -  converts the environmental linked list into a double pointer array
-15. [print_funcs.c](print_funcs.c) - Includes functions to print the environmental list
+15. [print_funcs.c](print_funcs.c) - Includes functions to print the environmental list:
   * ``print_env_list()`` - function that prints the environmental list
   * ``print_input_list()`` -  function that prints the input list
-16. [shell.c](shell.c) - File that includes the main shell function
+16. [shell.c](shell.c) - File includes the main shell function and signal handler:
+  * ``main()`` - main shell function
+  * ``signal_handler()`` -  function that handles the signal ^C
 17. [shell.h](shell.h) - Header file that includes prototypes and structs
-18. [string_helper_funcs.c](string_helper_funcs.c) - Includes functions help the basic functionality for the shell
+18. [string_helper_funcs.c](string_helper_funcs.c) - Includes functions that help the basic functionality for the shell
   * ``_strcmp()`` - function that compares the strings
-  * ``_strncmp()`` -  function that compares the strings
+  * ``_strncmp()`` -  function that compares the strings up to at most the first n bytes of string 1
   * ``_strcmp_env()`` -  function that compares the strings for the environmental variables
   * ``*_strdup()`` -  function that duplicates the string
   * ``_strlen()`` -  function that finds the length of the string
