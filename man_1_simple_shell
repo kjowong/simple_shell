@@ -29,7 +29,12 @@ writes the shell's environment to standard output
 exits BombShell
 .SH EXAMPLES
 Here is an example use of the "ls" command in BombShell:
-$ ls -l
+.if t .sp 0.5
+.if n .sp 1
+.RS
+PD 0
+TP
+.B (\fl$ ls -l\fp)
 total 3
 -rwxrw-r-x 1 vagrant vagrant 5345 Apr 4 14:59 hello.c
 -rwxrwxrwx 1 vagrant vagrant 5343 Mar 1 22:05 julien.c
