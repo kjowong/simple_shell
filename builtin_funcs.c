@@ -4,7 +4,6 @@
   * @vars: pointer to a sturct that holds all the needed variables
   * Return: 0 on success
   **/
-
 int print_env(all_variables_t *vars)
 {
 	unsigned int i;
@@ -32,4 +31,4 @@ int _setenv(all_variables_t *vars)
 
 	return(0);
 }
-*/
+**/

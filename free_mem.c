@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * free_list - frees a list_t list, the input list
+ * free_input_list - frees a list_t list, the input list
  * @head: pointer to the list head
  */
 void free_input_list(list_t *head)
