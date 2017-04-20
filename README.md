@@ -77,13 +77,13 @@ Once cloned over, the repository will contain the following files:
   * ``main()`` - main shell function
   * ``signal_handler()`` -  function that handles the signal ^C
 17. [shell.h](shell.h) - Header file that includes prototypes and structs
-18. [string_helper_funcs.c](string_helper_funcs.c) - Includes functions that help the basic functionality for the shell
+18. [string_helper_funcs.c](string_helper_funcs.c) - Includes functions that help the basic functionality for the shell:
   * ``_strcmp()`` - function that compares the strings
   * ``_strncmp()`` -  function that compares the strings up to at most the first n bytes of string 1
   * ``_strcmp_env()`` -  function that compares the strings for the environmental variables
   * ``*_strdup()`` -  function that duplicates the string
   * ``_strlen()`` -  function that finds the length of the string
-19. [write_func.c](write_func.c) - Includes a function that writes to standard output
+19. [write_func.c](write_func.c) - Includes a function that writes to standard output:
   * ``_write()`` - function that writes to standard output
 20. [AUTHORS](AUTHORS) - List of contributors.
 16. [man_1_simple_shell](man_1_simple_shell) - Manual page for the shell.
