@@ -24,9 +24,25 @@ int print_env(all_variables_t *vars)
  **/
 int _setenv(all_variables_t *vars)
 {
-	int i = 0;
+	int i = 0, j = 0;
+	env_t *traverser = vars->env_hd;
+	char *keynval = _strdup(vars->in_ar[1]);
+	char *key = strtok(keynval, "=");
 
-	while (vars->in_ar[1][i] != '\0')
+	while (traverser != NULL)
+	{
+		if (_strncmp(key, traverser->key, _strlen(key)) == 0)
+		{
+			traverser->value = strtok(NULL, "\n");
+			free_env_array(vars->env_ar);
+			vars->env_ar = conv_list_to_array(vars->env_hd, vars->n_env_nod + 1);
+			vars->n_env_nod = vars->n_env_nod + 1;
+			j = 1;
+			break;
+		}
+		traverser = traverser->next;
+	}
+	while (vars->in_ar[1][i] != '\0' && j == 0)
 	{
 		if (vars->in_ar[1][i] == '=' && vars->in_ar[1][i + 1] != '\0')
 		{
@@ -41,7 +57,9 @@ int _setenv(all_variables_t *vars)
 	if (vars->in_ar[1][i] == '\0')
 	{
 		perror("usage: PATH=value");
+		free(keynval);
 		return (1);
 	}
+	free(keynval);
 	return (0);
 }
