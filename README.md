@@ -97,7 +97,7 @@ Compile all the `.c` files in simple_shell
 ```
 gcc -Wall -Wextra -Werror -pedantic -g *.c -o hsh
 ```
-The `-g` flag is used to trace Valgrin errors, such as memory leaks and invalid reads
+The `-g` flag is used to trace Valgrind errors, such as memory leaks and invalid reads
 
 ## Example of Use
 After compiling, run the executable `./hsh`
