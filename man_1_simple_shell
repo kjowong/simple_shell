@@ -6,26 +6,26 @@
 .I hsh [command] [arg] ...
 
 .SH DESCRIPTION
-BombShell (hsh) replicates the command language interpreter (sh) and executes commands read from the standard input or from a file.\ 
+BombShell (hsh) replicates the command language interpreter (sh) and executes commands read from the standard input or from a file.\
 
 
 .SH OVERVIEW
-Bombshell (hsh) is a command that reads lines from either a file or the terminal, interprets them, and generally executes the commands.\ 
-It is a program that is running when the user compiles BombShell (simple_shell) and runs the executable file, ./hsh.\
+Bombshell (hsh) is a command that reads lines from either a file or the terminal, interprets them, and generally executes the commands.\
+It is a program that is running when the user compiles BombShell (simple_shell) and runs the executable file, ./hsh. \
 BombShell implements a language that has flow control constructs, steering the computer to execute the commands. It incorporates\
-features for interactive use and has the advantage of being in non-interactive mode, allowing the user to pipe the command into hsh such as echo "ls" | ./hsh\ 
-That is, commands can be typed directly to the running shell or can be put into a file and the file can be executed directly by the shell. 
+features for interactive use and has the advantage of being in non-interactive mode, allowing the user to pipe commands into hsh such as echo "ls" | ./hsh\
+That is, commands can be typed directly to the running shell or can be put into a file and the file can be executed directly by the shell.
 
 .SH INVOCATION
 To start up BombShell, you must first compile with gcc -Wall -Werror -Wextra -pedantic *.c -o hsh and run the executable ./hsh.
-If no arguments are present and if the standard input of the shell is connected to a terminal, the shell is considered an interactive shell.  
+If no arguments are present and if the standard input of the shell is connected to a terminal, the shell is considered in interactive mode .
 BombShell is designed to interact in Linux or a Unix like system since the shell uses the Linux system calls to retrieve and execute executable programs found in the $PATH. Our version of the shell incorporates the builtin commands "exit" and "env".
 .SH BUILT-IN COMMANDS
-This secion has information on the included builtin commands with BombShell
+This secion has information on the included builtin commands incorporated into BombShell
 .IP env
 writes the current environment to standard output
 .IP exit
-terminates the BombShell's processes
+terminates BombShell's processes
 .SH EXAMPLE OF EXECUTABLE
 Here is an example use of the "ls" command in BombShell:
 .IP
@@ -42,7 +42,7 @@ total 3
 .br
 \&-rwxrw-r-x 1 vagrant vagrant 5542 Feb 2 09:14 holberton.c
 .SH EXAMPLE OF BUILTIN
-Here is an example of the builtin function, "env", example is without LS_COLORS:
+Here is an example of the builtin function, "env", example does not show LS_COLORS on purpose:
 .IP
 .br
 .\&
@@ -97,6 +97,6 @@ This man page references the dash shell man page as it is well written.
 .SH BUGS
 No known bugs.
 .SH DEVELOPER(s) NOTES
-Other builtins such as alias, history, command seperators are currently in development.
+Other builtins such as alias, history, and command seperators are currently in development.
 .SH AUTHORS
 Kimberly Wong, Christian Agha
