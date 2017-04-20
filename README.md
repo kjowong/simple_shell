@@ -109,7 +109,7 @@ total 3
 -rwxrw-r-x 1 vagrant vagrant 5542 Feb 2 09:14 holberton.c
 ```
 ## Notes
-Other builtins such as aliases, history and or command separators are not supported as is currently in development.
+Other builtins such as aliases, history, and or command separators are not supported and is currently in development.
 
 ## Known Bugs
 There are no known bugs at the time.
