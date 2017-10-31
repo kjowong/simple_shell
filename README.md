@@ -111,7 +111,7 @@ $ ls -l
 total 3
 -rwxrw-r-x 1 vagrant vagrant 5345 Apr 4 14:59 hello.c
 -rwxrwxrwx 1 vagrant vagrant 5343 Mar 1 22:05 julien.c
--rwxrw-r-x 1 vagrant vagrant 5542 Feb 2 09:14 holberton.c
+-rwxrw-r-x 1 vagrant vagrant 5542 Feb 2 09:14 nutella.c
 ```
 ## Notes
 Other builtins such as aliases, history, and or command separators are not supported and are currently in development.
@@ -122,7 +122,7 @@ There are no known bugs at the time.
 ### Authors
 *Christian Agha* - [Github](https://github.com/ChristianAgha) || [Twitter](https://twitter.com/ChristyanAgha) || [email](christianagha@gmail.com)
 
-*Kimberly Wong* - [Github](https://github.com/kjowong) || [Twitter](https://twitter.com/kjowong) || [email](kimberly.wong@holbertonschool.com)
+*Kimberly Wong* - [Github](https://github.com/kjowong) || [Twitter](https://twitter.com/kjowong) || [email](kjowong@gmail.com)
 
 #### Feedback and contributors welcomed. Reach out to either authors.
 
