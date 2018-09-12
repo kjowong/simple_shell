@@ -1,6 +1,7 @@
 # BombShell
 
-This project is about recreating the shell in the C language, replicating some of processes of the `sh` shell. This version will be used as `./hsh`.
+This project is about recreating the shell in the C language, replicating some of processes of the `sh` shell. This version will be used as `./hsh`. This project is a partner project that was completed when both partners paired programmed - this project was originally on one repository until grades were released. Once grades were released, this version was forked over. (No changes were made afterwards)
+
 ## Environment
 Our version of the Shell has been tested on Ubuntu 14.05.5 LTS
 
